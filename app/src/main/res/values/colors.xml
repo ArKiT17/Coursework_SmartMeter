@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#BE0909</color>
+    <color name="bg">#FFFFFFFF</color>
+    <color name="bg_dark">#BE0909</color>
+    <color name="text_light">#FFFFFFFF</color>
+    <color name="text_dark">#FF000000</color>
+    <color name="text_red">#BE0909</color>
+    <color name="spinner_bg_grey">#D9D9D9</color>
+    <color name="spinner_text_grey">#606060</color>
+    <color name="hint_grey">#828282</color>
+
+    <color name="style_background">#FFFFFFFF</color>
+    <color name="style_border">#FF000000</color>
+</resources>

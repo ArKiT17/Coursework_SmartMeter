@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name" translatable="false">Smart Meter</string>
+
+    <string name="btn_start">START</string>
+    <string name="btn_counters">Counters</string>
+    <string name="btn_values">Values</string>
+    <string name="btn_history">History</string>
+    <string name="btn_export">Export to Excel</string>
+    <string name="btn_changeDate">Change date</string>
+    <string name="btn_saveValues">Save</string>
+
+    <string name="btn_addNewCounter">Add new counter</string>
+    <string name="btn_choose">All companies</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_delete">Delete</string>
+
+    <string name="btn_send_mail">Send</string>
+    <string name="checkbox_set_as_default">Set as default</string>
+
+    <string name="title_company">Company</string>
+    <string name="title_new_company">New company</string>
+    <string name="title_or">or</string>
+    <string name="title_company_dots">Company:</string>
+    <string name="title_counter">Counter</string>
+    <string name="title_counter_dots">Counter:</string>
+    <string name="title_previousValue">Previous:</string>
+    <string name="title_currentValue">Current:</string>
+    <string name="title_values">Counter value</string>
+    <string name="title_resultValue">Difference:</string>
+    <string name="title_floor">Floor:</string>
+
+    <string name="title_editing">Edit</string>
+
+    <string name="title_counters">Counters</string>
+
+    <string name="title_review_values">Counter info</string>
+
+    <string name="title_excel" translatable="false">Excel</string>
+    <string name="title_mail_to">Mail to:</string>
+
+    <string name="title_editing_counter_data">Edit counter info</string>
+
+    <!--    Add counter activity    -->
+    <string name="title_newCounter">New counter</string>
+    <string name="title_newRoom">Room</string>
+    <string name="title_newMultiplier">Multiplier</string>
+    <string name="title_newFloor">Floor</string>
+
+    <string name="hint_previousValue">Enter value</string>
+    <string name="hint_currentValue">Enter value</string>
+    <string name="hint_mail">Enter email</string>
+    <string name="hint_search">Search</string>
+
+    <string name="item_title_counter">"Counter: "</string>
+    <string name="item_title_room">"| Room: "</string>
+    <string name="item_title_floor">"Floor: "</string>
+    <string name="item_title_multiplier">"| Multiplier: "</string>
+
+    <string name="cd_goBack">Back</string>
+    <string name="cd_qr">QR Code</string>
+
+    <!--    Values history activity    -->
+
+    <string name="history_id" translatable="false">ID</string>
+    <string name="history_putDate">Meter reading date</string>
+    <string name="history_prevValue">Previous</string>
+    <string name="history_currValue">Current</string>
+    <string name="history_difference">Difference</string>
+
+    <!--  Alerts  -->
+
+    <string name="alert_title_warning">Warning</string>
+    <string name="alert_title_info">Info</string>
+    <string name="alert_title_error">Error</string>
+    <string name="alert_title_is_it_correct">Is it correct?</string>
+    <string name="alert_error_database">Database error. Please, reload.</string>
+    <string name="alert_YES">Yes</string>
+    <string name="alert_NO">No</string>
+    <string name="alert_are_you_sure">Are you sure?</string>
+
+    <!--  Toasts  -->
+
+    <string name="toast_success">Success</string>
+    <string name="toast_error">Error</string>
+    <string name="toast_successfully_updated">Updated successfully</string>
+    <string name="toast_successfully_deleted">Deleted successfully</string>
+    <string name="toast_invalid_number">Invalid number</string>
+    <string name="toast_failed_to_update">Updating error</string>
+    <string name="toast_failed_to_delete">Deletion error</string>
+
+</resources>

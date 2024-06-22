@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".activities.Start">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitStart"
+        android:src="@drawable/logo_gali_samo"
+        android:textColor="@color/bg_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="300dp"
+        app:layout_constraintWidth_percent="0.38" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintWidth_max="500dp"
+        app:layout_constraintWidth_percent="0.8">
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/bg_dark"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:onClick="startButtonClick"
+            android:paddingHorizontal="50dp"
+            android:paddingVertical="10dp"
+            android:text="@string/btn_start"
+            android:textColor="@color/text_light"
+            android:textSize="45sp"
+            app:layout_constraintBottom_toTopOf="@id/companiesButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="80dp"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/companiesButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/bg_dark"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:onClick="countersButton"
+            android:text="@string/btn_counters"
+            android:textColor="@color/text_light"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@id/valuesButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="80dp"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/startButton" />
+
+        <Button
+            android:id="@+id/valuesButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/bg_dark"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:onClick="valuesButtonClick"
+            android:text="@string/btn_values"
+            android:textColor="@color/text_light"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@id/historyButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="80dp"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/companiesButton" />
+
+        <Button
+            android:id="@+id/historyButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/valuesButton"
+            android:backgroundTint="@color/bg_dark"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:onClick="historyButtonClick"
+            android:text="@string/btn_history"
+            android:textColor="@color/text_light"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@id/exportButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="80dp"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/valuesButton" />
+
+        <Button
+            android:id="@+id/exportButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/historyButton"
+            android:backgroundTint="@color/bg_dark"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:onClick="exportToExcel"
+            android:text="@string/btn_export"
+            android:textColor="@color/text_light"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="80dp"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/historyButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
