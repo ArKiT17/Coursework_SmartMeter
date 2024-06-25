@@ -12,7 +12,7 @@
     <string name="btn_addNewCounter">Add new counter</string>
     <string name="btn_choose">All companies</string>
     <string name="btn_save">Save</string>
-    <string name="btn_delete">Delete</string>
+    <string name="btn_delete">Clear</string>
 
     <string name="btn_send_mail">Send</string>
     <string name="checkbox_set_as_default">Set as default</string>

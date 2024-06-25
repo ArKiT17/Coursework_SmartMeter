@@ -5,6 +5,88 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_dark"
     tools:context=".activities.CountersActivity">
+
+    <TextView
+        android:id="@+id/titleCounters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/abhayalibre_medium"
+        android:text="@string/title_counters"
+        android:textAlignment="center"
+        android:textColor="@color/text_light"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleCounters">
+
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/enter_style"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:hint="@string/hint_search"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="5dp"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/hint_grey"
+            android:textSize="35sp" />
+
+        <Button
+            android:id="@+id/clearButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bg"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:onClick="clearSearchBar"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="5dp"
+            android:text="@string/btn_delete"
+            android:textColor="@color/text_dark"
+            android:textSize="35sp" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listCounters"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="26dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="120dp"
+        android:background="@color/bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search" />
+
+    <ImageButton
+        android:id="@+id/addButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/bg_dark"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="addCounterClick"
+        android:scaleType="fitCenter"
+        android:src="@drawable/add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/listCounters" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
