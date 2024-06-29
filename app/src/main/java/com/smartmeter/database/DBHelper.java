@@ -94,6 +94,32 @@ public class DBHelper extends Configs {
         return result;
     }
 
+    public void addNewCounter(String company, String room, int floor, int multiplier, String counter) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+            setDbConnection();
+
+            String query = "INSERT INTO " + Const.TABLE_COUNTERSINFO + "(" +
+                    Const.KEY_COMPANY + ", " +
+                    Const.KEY_ROOM + ", " +
+                    Const.KEY_FLOOR + ", " +
+                    Const.KEY_MULTIPLIER + ", " +
+                    Const.KEY_COUNTER + ") VALUES (?, ?, ?, ?, ?);";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setString(1, company);
+                prSt.setString(2, room);
+                prSt.setInt(3, floor);
+                prSt.setInt(4, multiplier);
+                prSt.setString(5, counter);
+                prSt.executeUpdate();
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+
+        });
+    }
+
 //    public void test() {
 //        ExecutorService executorService = Executors.newSingleThreadExecutor();
 //        executorService.execute(() -> {
