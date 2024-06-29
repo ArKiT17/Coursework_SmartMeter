@@ -6,7 +6,6 @@
     <string name="btn_export">Eksportuj do Excela</string>
     <string name="btn_changeDate">Zmień datę</string>
     <string name="btn_saveValues">Zapisz</string>
-    <string name="btn_addNewCounter">Dodaj nowy licznik</string>
     <string name="btn_choose">Wszyscy najemcy</string>
     <string name="btn_save">Zapisz</string>
     <string name="btn_delete">Usuń</string>
@@ -16,7 +15,7 @@
     <string name="title_new_company">Nowy najemca</string>
     <string name="title_or">albo</string>
     <string name="title_company_dots">Najemca:</string>
-    <string name="title_counter">Licznik</string>
+    <string name="title_counter">Nazwa licznika</string>
     <string name="title_counter_dots">Licznik:</string>
     <string name="title_previousValue">Poprzednie:</string>
     <string name="title_currentValue">Obecne:</string>

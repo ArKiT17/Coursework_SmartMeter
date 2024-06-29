@@ -9,7 +9,6 @@
     <string name="btn_changeDate">Change date</string>
     <string name="btn_saveValues">Save</string>
 
-    <string name="btn_addNewCounter">Add new counter</string>
     <string name="btn_choose">All companies</string>
     <string name="btn_save">Save</string>
     <string name="btn_delete">Clear</string>
@@ -21,7 +20,7 @@
     <string name="title_new_company">New company</string>
     <string name="title_or">or</string>
     <string name="title_company_dots">Company:</string>
-    <string name="title_counter">Counter</string>
+    <string name="title_counter">Counter name</string>
     <string name="title_counter_dots">Counter:</string>
     <string name="title_previousValue">Previous:</string>
     <string name="title_currentValue">Current:</string>

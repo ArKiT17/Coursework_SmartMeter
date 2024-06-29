@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:orientation="vertical"
+    tools:context=".activities.AddCounter">
+
+    <TextView
+        android:id="@+id/titleNewCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/abhayalibre_medium"
+        android:text="@string/title_newCounter"
+        android:textAlignment="center"
+        android:textColor="@color/text_light"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@id/values"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/values"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleNewCounter"
+        android:layout_marginHorizontal="30dp"
+        android:background="@color/bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleNewCounter">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:fontFamily="@font/abhayalibre_medium"
+                android:text="@string/title_new_company"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/newCompany"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:background="@drawable/enter_style"
+                android:ems="6"
+                android:inputType="text"
+                android:padding="5sp"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:text="@string/title_or"
+            android:textColor="@color/text_dark"
+            android:textSize="35sp" />
+
+        <Spinner
+            android:id="@+id/companyList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:fontFamily="@font/abhayalibre_medium"
+                android:text="@string/title_newRoom"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/newRoom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:background="@drawable/enter_style"
+                android:ems="6"
+                android:inputType="text"
+                android:padding="5sp"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:fontFamily="@font/abhayalibre_medium"
+                android:text="@string/title_newFloor"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/newFloor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:background="@drawable/enter_style"
+                android:ems="6"
+                android:inputType="numberSigned"
+                android:padding="5sp"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:fontFamily="@font/abhayalibre_medium"
+                android:text="@string/title_newMultiplier"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/newMultiplier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:background="@drawable/enter_style"
+                android:ems="6"
+                android:inputType="numberDecimal"
+                android:padding="5sp"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:fontFamily="@font/abhayalibre_medium"
+                android:text="@string/title_counter"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/newCounter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:background="@drawable/enter_style"
+                android:ems="6"
+                android:inputType="text"
+                android:padding="5sp"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/bg_dark"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:onClick="addNewCounterOnClick"
+            android:text="@string/btn_save"
+            android:textColor="@color/text_light"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

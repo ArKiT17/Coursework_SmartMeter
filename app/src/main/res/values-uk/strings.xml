@@ -7,7 +7,6 @@
     <string name="btn_export">Експорт в Excel</string>
     <string name="btn_changeDate">Змінити дату</string>
     <string name="btn_saveValues">Зберегти</string>
-    <string name="btn_addNewCounter">Додати лічильник</string>
     <string name="btn_choose">Всі компанії</string>
     <string name="btn_save">Зберегти</string>
     <string name="btn_delete">Видалити</string>
@@ -17,7 +16,7 @@
     <string name="title_new_company">Нова компанія</string>
     <string name="title_or">або</string>
     <string name="title_company_dots">Компанія:</string>
-    <string name="title_counter">Лічильник</string>
+    <string name="title_counter">Назва лічильника</string>
     <string name="title_counter_dots">Лічильник:</string>
     <string name="title_previousValue">Попереднє:</string>
     <string name="title_currentValue">Поточне:</string>
