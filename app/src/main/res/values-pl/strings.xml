@@ -34,6 +34,7 @@
 
     <string name="title_review_values">Spisy z licznika</string>
 
+    <string name="title_excel">Utwórz Excela</string>
     <string name="title_mail_to">Wyslij e-mail do:</string>
 
     <string name="title_editing_counter_data">Edycja danych licznika</string>

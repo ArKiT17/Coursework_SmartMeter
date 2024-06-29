@@ -5,6 +5,106 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context=".activities.ExportMailActivity">
+
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/bg_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="400dp"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:text="@string/title_excel"
+            android:textColor="@color/text_light"
+            android:textSize="60sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutMainInfo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintWidth_max="500dp"
+        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topLayout">
+
+        <TextView
+            android:id="@+id/titleMailTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:text="@string/title_mail_to"
+            android:textColor="@color/text_dark"
+            android:textSize="40sp" />
+
+        <EditText
+            android:id="@+id/enterMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/enter_style"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:hint="@string/hint_mail"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/text_dark"
+            android:textColorHint="@color/hint_grey"
+            android:textSize="30sp" />
+
+        <CheckBox
+            android:id="@+id/checkboxSetAsDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:button="@drawable/checkbox_style"
+            android:scrollbarSize="20dp"
+            android:text="@string/checkbox_set_as_default"
+            android:textColor="@color/text_dark"
+            android:textSize="25sp" />
+
+        <Spinner
+            android:id="@+id/monthsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp" />
+
+        <Spinner
+            android:id="@+id/yearsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutMainInfo"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/bg_dark"
+        android:fontFamily="@font/abhayalibre_medium"
+        android:onClick="sendClick"
+        android:text="@string/btn_send_mail"
+        android:textColor="@color/text_light"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

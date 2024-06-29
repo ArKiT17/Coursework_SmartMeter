@@ -35,7 +35,7 @@
 
     <string name="title_review_values">Counter values</string>
 
-    <string name="title_excel" translatable="false">Excel</string>
+    <string name="title_excel">Create Excel</string>
     <string name="title_mail_to">Mail to:</string>
 
     <string name="title_editing_counter_data">Edit counter info</string>
