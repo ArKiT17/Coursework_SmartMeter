@@ -3,7 +3,7 @@
 
     <string name="btn_start">START</string>
     <string name="btn_counters">Counters</string>
-    <string name="btn_values">Values</string>
+    <string name="btn_values">Edit values</string>
     <string name="btn_history">History</string>
     <string name="btn_export">Export to Excel</string>
     <string name="btn_changeDate">Change date</string>
@@ -29,11 +29,11 @@
     <string name="title_resultValue">Difference:</string>
     <string name="title_floor">Floor:</string>
 
-    <string name="title_editing">Edit</string>
+    <string name="title_editing">Edition</string>
 
     <string name="title_counters">Counters</string>
 
-    <string name="title_review_values">Counter info</string>
+    <string name="title_review_values">Counter values</string>
 
     <string name="title_excel" translatable="false">Excel</string>
     <string name="title_mail_to">Mail to:</string>
@@ -62,7 +62,7 @@
     <!--    Values history activity    -->
 
     <string name="history_id" translatable="false">ID</string>
-    <string name="history_putDate">Meter reading date</string>
+    <string name="history_putDate">Date</string>
     <string name="history_prevValue">Previous</string>
     <string name="history_currValue">Current</string>
     <string name="history_difference">Difference</string>
