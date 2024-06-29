@@ -6,15 +6,11 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.smartmeter.Buffer;
 import com.smartmeter.R;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class Start extends AppCompatActivity {
     private Button startButton;
@@ -40,7 +36,8 @@ public class Start extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        ReloadCompanyList();
+
+        Buffer.companyList = Buffer.dbHelper.getAllCompaniesList();
         startButton.setEnabled(true);
         countersButton.setEnabled(true);
         valuesButton.setEnabled(true);

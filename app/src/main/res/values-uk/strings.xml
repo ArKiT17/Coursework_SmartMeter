@@ -63,4 +63,16 @@
     <string name="toast_successfully_updated">Успішно оновлено</string>
     <string name="toast_successfully_deleted">Успішно видалено</string>
     <string name="toast_invalid_number">Невірний номер</string>
+    <string name="january">Січень</string>
+    <string name="february">Лютий</string>
+    <string name="march">Березень</string>
+    <string name="april">Квітень</string>
+    <string name="may">Травень</string>
+    <string name="june">Червень</string>
+    <string name="july">Липень</string>
+    <string name="august">Серпень</string>
+    <string name="september">Вересень</string>
+    <string name="october">Жовтень</string>
+    <string name="november">Листопад</string>
+    <string name="december">Грудень</string>
 </resources>

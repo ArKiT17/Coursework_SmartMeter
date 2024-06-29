@@ -1,5 +1,4 @@
 <resources>
-
     <string name="btn_start">START</string>
     <string name="btn_counters">Liczniki</string>
     <string name="btn_values">Stan licznika</string>
@@ -7,15 +6,12 @@
     <string name="btn_export">Eksportuj do Excela</string>
     <string name="btn_changeDate">Zmień datę</string>
     <string name="btn_saveValues">Zapisz</string>
-
     <string name="btn_addNewCounter">Dodaj nowy licznik</string>
     <string name="btn_choose">Wszyscy najemcy</string>
     <string name="btn_save">Zapisz</string>
     <string name="btn_delete">Usuń</string>
-
     <string name="btn_send_mail">Wyślij</string>
     <string name="checkbox_set_as_default">Ustaw jako domyślne</string>
-
     <string name="title_company">Najemca</string>
     <string name="title_new_company">Nowy najemca</string>
     <string name="title_or">albo</string>
@@ -27,46 +23,30 @@
     <string name="title_values">Stan licznika energetycznego</string>
     <string name="title_resultValue">Różnica:</string>
     <string name="title_floor">Piętro:</string>
-
     <string name="title_editing">Edycja</string>
-
     <string name="title_counters">Liczniki</string>
-
     <string name="title_review_values">Spisy z licznika</string>
-
     <string name="title_excel">Utwórz Excela</string>
     <string name="title_mail_to">Wyslij e-mail do:</string>
-
     <string name="title_editing_counter_data">Edycja danych licznika</string>
-
-    <!--    Add counter activity    -->
     <string name="title_newCounter">Nowy licznik</string>
     <string name="title_newRoom">Lokal</string>
     <string name="title_newMultiplier">Przekładnik</string>
     <string name="title_newFloor">Piętro</string>
-
     <string name="hint_previousValue">Wpisz stan</string>
     <string name="hint_currentValue">Wpisz stan</string>
     <string name="hint_mail">Wpisz e-mail</string>
     <string name="hint_search">Wyszukaj</string>
-
     <string name="item_title_counter">Licznik: </string>
     <string name="item_title_room">| Lokal: </string>
     <string name="item_title_floor">Piętro: </string>
     <string name="item_title_multiplier">| Przekładnik: </string>
-
     <string name="cd_goBack">Wróć</string>
     <string name="cd_qr">Kod QR</string>
-
-    <!--    Values history activity    -->
-
     <string name="history_putDate">Data spisu</string>
     <string name="history_prevValue">Poprzednie</string>
     <string name="history_currValue">Obecne</string>
     <string name="history_difference">Różnica</string>
-
-    <!--  Alerts  -->
-
     <string name="alert_title_warning">Ostrzeżenie</string>
     <string name="alert_title_info">Informacje</string>
     <string name="alert_title_error">Błąd</string>
@@ -75,9 +55,6 @@
     <string name="alert_YES">Tak</string>
     <string name="alert_NO">Nie</string>
     <string name="alert_are_you_sure">Jesteś pewien?</string>
-
-    <!--  Toasts  -->
-
     <string name="toast_success">Sukces</string>
     <string name="toast_error">Błąd</string>
     <string name="toast_failed_to_update">Błąd dodawania</string>
@@ -85,5 +62,16 @@
     <string name="toast_successfully_updated">Dodano prawidłowo</string>
     <string name="toast_successfully_deleted">Usuniento prawidłowo</string>
     <string name="toast_invalid_number">Nieprawidłowy numer</string>
-
+    <string name="january">Styczeń</string>
+    <string name="february">Luty</string>
+    <string name="march">Marzec</string>
+    <string name="april">Kwiecień</string>
+    <string name="may">Maj</string>
+    <string name="june">Czerwiec</string>
+    <string name="july">Lipiec</string>
+    <string name="august">Sierpień</string>
+    <string name="september">Wrzesień</string>
+    <string name="october">Październik</string>
+    <string name="november">Listopad</string>
+    <string name="december">Grudzień</string>
 </resources>

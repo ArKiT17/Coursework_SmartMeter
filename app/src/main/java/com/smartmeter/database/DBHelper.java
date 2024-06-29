@@ -1,14 +1,24 @@
 package com.smartmeter.database;
 
+import android.os.Build;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class DBHelper extends Configs {
 
-    Connection dbConnection;
+    private Connection dbConnection;
 
     public DBHelper() {
         dbConnection = null;
@@ -24,6 +34,64 @@ public class DBHelper extends Configs {
             } catch (Exception e) {
                 Log.e("Error", Objects.requireNonNull(e.getMessage()));
             }
+    }
+
+    public ArrayList<String> getAllCompaniesList() {
+        ArrayList<String> result = new ArrayList<>();
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            String query = "SELECT DISTINCT " + Const.KEY_COMPANY + " FROM " + Const.TABLE_COUNTERSINFO +
+                    " ORDER BY " + Const.KEY_COMPANY + " ASC;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                resultSet = prSt.executeQuery();
+
+                while (resultSet.next()) {
+                    result.add(resultSet.getString(Const.KEY_COMPANY));
+                }
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+
+        });
+
+        return result;
+    }
+
+    // Компанії, лічильники яких не були списані у вибраний місяць (були списані до цього місяця або не списані взагалі ніколи)
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public ArrayList<String> getNoneZeroCompaniesList(LocalDate day){
+        ArrayList<String> result = new ArrayList<>();
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            String query = "SELECT DISTINCT " + Const.KEY_COMPANY +
+                    " FROM " + Const.TABLE_COUNTERSINFO + " LEFT JOIN " + Const.TABLE_VALUES +
+                    " ON " + Const.TABLE_COUNTERSINFO + "." + Const.KEY_ID + " = " + Const.KEY_COUNTER_ID +
+                    " WHERE " + Const.TABLE_COUNTERSINFO + "." + Const.KEY_ID + " NOT IN (SELECT " + Const.KEY_COUNTER_ID +
+                    " FROM " + Const.TABLE_VALUES +
+                    " WHERE " + Const.KEY_DATE + " LIKE '%." + String.format("%02d", day.getMonthValue()) + "." + day.getYear() + "') ORDER BY " + Const.KEY_COMPANY + " ASC;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                resultSet = prSt.executeQuery();
+
+                while (resultSet.next()) {
+                    result.add(resultSet.getString(Const.KEY_COMPANY));
+                }
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+
+        });
+
+        return result;
     }
 
 //    public void test() {

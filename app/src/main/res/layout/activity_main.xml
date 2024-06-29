@@ -21,22 +21,23 @@
         <ImageButton
             android:id="@+id/qrButton"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="6dp"
             android:backgroundTint="@color/bg_dark"
             android:onClick="ScannerButton"
             android:scaleType="fitStart"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.5"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_max="100dp"
             app:layout_constraintWidth_percent="0.2"
             app:srcCompat="@drawable/scan" />
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,32 +47,35 @@
                 android:id="@+id/titleFloor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
                 android:fontFamily="@font/abhayalibre_medium"
                 android:text="@string/title_floor"
                 android:textColor="@color/text_light"
-                android:textSize="50sp" />
+                android:textSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/floorValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toEndOf="@id/titleFloor"
+                android:layout_marginStart="10dp"
                 android:fontFamily="@font/abhayalibre_medium"
                 android:textColor="@color/text_light"
-                android:textSize="50sp" />
+                android:textSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/titleFloor"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Spinner
                 android:id="@+id/dateList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
