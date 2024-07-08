@@ -4,8 +4,8 @@ public class Const {
     public static final String KEY_ID = "id";
 
 
-    // Table with info about counters - countersInfo
-    public static final String TABLE_COUNTERSINFO = "countersInfo";
+    // Table with info about counters - counterInfo
+    public static final String TABLE_COUNTERINFO = "counterInfo";
     public static final String KEY_COMPANY = "company";
     public static final String KEY_ROOM = "room";
     public static final String KEY_FLOOR = "floor";
@@ -13,8 +13,8 @@ public class Const {
     public static final String KEY_COUNTER = "counter";
 
 
-    // Main table - counterValues
-    public static final String TABLE_VALUES = "counterValues";
+    // Main table - counterValue
+    public static final String TABLE_VALUE = "counterValue";
     public static final String KEY_COUNTER_ID = "counter_id";
     public static final String KEY_DATE = "put_date";
     public static final String KEY_PREVIOUS_VALUE = "previous_value";

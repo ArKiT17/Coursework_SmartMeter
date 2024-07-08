@@ -20,7 +20,7 @@
     <string name="title_new_company">New company</string>
     <string name="title_or">or</string>
     <string name="title_company_dots">Company:</string>
-    <string name="title_counter">Counter name</string>
+    <string name="title_counter_name">Counter name</string>
     <string name="title_counter_dots">Counter:</string>
     <string name="title_previousValue">Previous:</string>
     <string name="title_currentValue">Current:</string>
@@ -99,5 +99,11 @@
     <string name="october">October</string>
     <string name="november">November</string>
     <string name="december">December</string>
+
+    <string name="title_date">Date</string>
+    <string name="title_counter">Counter</string>
+    <string name="title_previous">Previous</string>
+    <string name="title_current">Current</string>
+    <string name="title_difference">Difference</string>
 
 </resources>

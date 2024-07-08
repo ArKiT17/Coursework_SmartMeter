@@ -16,7 +16,7 @@
     <string name="title_new_company">Нова компанія</string>
     <string name="title_or">або</string>
     <string name="title_company_dots">Компанія:</string>
-    <string name="title_counter">Назва лічильника</string>
+    <string name="title_counter_name">Назва лічильника</string>
     <string name="title_counter_dots">Лічильник:</string>
     <string name="title_previousValue">Попереднє:</string>
     <string name="title_currentValue">Поточне:</string>
@@ -74,4 +74,9 @@
     <string name="october">Жовтень</string>
     <string name="november">Листопад</string>
     <string name="december">Грудень</string>
+    <string name="title_date">Дата</string>
+    <string name="title_counter">Лічильник</string>
+    <string name="title_previous">Попереднє</string>
+    <string name="title_current">Поточне</string>
+    <string name="title_difference">Різниця</string>
 </resources>

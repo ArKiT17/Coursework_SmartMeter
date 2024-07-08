@@ -45,32 +45,6 @@ public class Start extends AppCompatActivity {
         historyButton.setEnabled(true);
     }
 
-//    public void test2() {
-//        ExecutorService executorService = Executors.newSingleThreadExecutor();
-//        executorService.execute(() -> {
-//            try {
-//                dbConnection = dbHelper.getDbConnection();
-//                if (dbConnection == null) {
-//                    str = "not connected";
-//                } else {
-//                    str = "connected";
-//                }
-//            } catch (Exception e) {
-//                System.out.println(e.getMessage());
-//            }
-//
-//            runOnUiThread(() -> {
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//                Toast.makeText(Start.this, str, Toast.LENGTH_LONG).show();
-//            });
-//
-//        });
-//    }
-
     public void startButtonClick(View view) {
         startButton.setEnabled(false);
 

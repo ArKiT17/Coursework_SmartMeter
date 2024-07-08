@@ -179,7 +179,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
                 android:fontFamily="@font/abhayalibre_medium"
-                android:text="@string/title_counter"
+                android:text="@string/title_counter_name"
                 android:textColor="@color/text_dark"
                 android:textSize="30sp" />
 
