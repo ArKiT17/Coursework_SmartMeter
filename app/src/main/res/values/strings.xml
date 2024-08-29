@@ -39,6 +39,11 @@
 
     <string name="title_editing_counter_data">Edit counter info</string>
 
+    <!--    Scanning    -->
+    <string name="scan_prompt">Scan QR code to verify a counter</string>
+    <string name="scan_this_counter_has_already_been_written_down">This counter has already been written down</string>
+    <string name="scan_error_line">Counter not found, please try again</string>
+
     <!--    Add counter activity    -->
     <string name="title_newCounter">New counter</string>
     <string name="title_newRoom">Room</string>
@@ -75,6 +80,7 @@
     <string name="alert_error_database">Database error. Please, reload.</string>
     <string name="alert_YES">Yes</string>
     <string name="alert_NO">No</string>
+    <string name="alert_CLOSE">Close</string>
     <string name="alert_are_you_sure">Are you sure?</string>
 
     <!--  Toasts  -->

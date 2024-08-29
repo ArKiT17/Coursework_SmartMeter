@@ -16,12 +16,17 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.journeyapps.barcodescanner.ScanContract;
+import com.journeyapps.barcodescanner.ScanOptions;
 import com.smartmeter.Buffer;
+import com.smartmeter.CaptureAct;
 import com.smartmeter.R;
+import com.smartmeter.ScanCounterInfo;
 import com.smartmeter.database.Const;
 
 import java.time.LocalDate;
@@ -32,8 +37,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class MainActivity extends AppCompatActivity {
-    private ArrayAdapter<String> adapter;
+    private ArrayAdapter<String> stringAdapter;
     private int id;
     private LocalDate toDate;
     private LocalDate today;
@@ -70,12 +76,6 @@ public class MainActivity extends AppCompatActivity {
         floorValue = findViewById(R.id.floorValue);
         saveButton = findViewById(R.id.saveButton);
         dateList = findViewById(R.id.dateList);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
-    protected void onResume() {
-        super.onResume();
 
         Buffer.months.clear();
         Buffer.months.addAll(Arrays.asList(
@@ -93,13 +93,19 @@ public class MainActivity extends AppCompatActivity {
                 getString(R.string.december)
         ));
 
-        adapter = new ArrayAdapter<String>(this, R.layout.spinner_style_dark, R.id.spinner_text_dark, Buffer.months);
-        dateList.setAdapter(adapter);
+        stringAdapter = new ArrayAdapter<String>(this, R.layout.spinner_style_dark, R.id.spinner_text_dark, Buffer.months);
+        dateList.setAdapter(stringAdapter);
 
         today = LocalDate.now();
         dateList.setSelection(today.getMonthValue() - 1);
+    }
 
-        if (Buffer.companyList.isEmpty()) {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (!Buffer.dbHelper.hasDbConnection()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(R.string.alert_error_database));
 
@@ -140,10 +146,7 @@ public class MainActivity extends AppCompatActivity {
                 multiplier.setText("1");
                 multiplyResult.setText("0");
                 floorValue.setText("");
-                ArrayList<String> noneZeroCompanies = Buffer.dbHelper.getNoneZeroCompaniesList(toDate);
-                noneZeroCompanies.add(0, "");
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.spinner_style_light, R.id.spinner_text_light, noneZeroCompanies);
-                companies.setAdapter(adapter);
+                setSpaceAdapter(companies, Buffer.dbHelper.getNoneZeroCompaniesList(toDate));
                 companies.setSelection(0);
                 counters.setSelection(0);
             }
@@ -159,10 +162,7 @@ public class MainActivity extends AppCompatActivity {
                 if (Buffer.scannerInfo != null)
                     return;
 
-                List<String> noneZeroCounters = Buffer.dbHelper.getNoneZeroCountersList(toDate, adapterView.getItemAtPosition(position).toString());
-                noneZeroCounters.add(0, "");
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.spinner_style_light, R.id.spinner_text_light, noneZeroCounters);
-                counters.setAdapter(adapter);
+                setSpaceAdapter(counters, Buffer.dbHelper.getNoneZeroCountersList(toDate, adapterView.getItemAtPosition(position).toString()));
             }
 
             @Override
@@ -299,5 +299,61 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void ScannerButton(View view) {
+        ScanOptions options = new ScanOptions();
+        options.setPrompt(getString(R.string.scan_prompt));
+        options.setOrientationLocked(true);
+        options.setBeepEnabled(false);
+        options.setTorchEnabled(true);
+        options.setCaptureActivity(CaptureAct.class);
+        barLauncher.launch(options);
+    }
+
+    private ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result -> {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.alert_title_error));
+        builder.setPositiveButton(getString(R.string.alert_CLOSE), null);
+
+        int counterId;
+        try {
+            counterId = Integer.parseInt(result.getContents());
+        } catch (Exception e) {
+            builder.setMessage(getString(R.string.scan_error_line));
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            return;
+        }
+
+        if (!Buffer.dbHelper.counterExists(counterId)) {
+            builder.setMessage(getString(R.string.scan_error_line));
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            return;
+        }
+
+        if (Buffer.dbHelper.counterHasWrittenDown(counterId, toDate)) {
+            builder.setMessage(getString(R.string.scan_this_counter_has_already_been_written_down));
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            return;
+        }
+
+        Buffer.scannerInfo = Buffer.dbHelper.getCounterInfo(counterId);
+
+        ArrayList<String> tmpCompanies = Buffer.dbHelper.getNoneZeroCompaniesList(toDate);
+        setSpaceAdapter(companies, tmpCompanies);
+        companies.setSelection(tmpCompanies.indexOf(Buffer.scannerInfo.company));
+
+        ArrayList<String> tmpCounters = Buffer.dbHelper.getNoneZeroCountersList(toDate, Buffer.scannerInfo.company);
+        setSpaceAdapter(counters, tmpCounters);
+        counters.setSelection(tmpCounters.indexOf(Buffer.scannerInfo.counter));
+    });
+
+    private void setSpaceAdapter(Spinner spinner, List<String> items) {
+        items.add(0, "");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.spinner_style_light, R.id.spinner_text_light, items);
+        spinner.setAdapter(adapter);
     }
 }

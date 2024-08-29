@@ -5,6 +5,8 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
+import com.smartmeter.ScanCounterInfo;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -36,8 +38,12 @@ public class DBHelper extends Configs {
                 String connectionString = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
                 dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
             } catch (Exception e) {
-                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+                Log.e("Error", Log.getStackTraceString(e));
             }
+    }
+
+    public boolean hasDbConnection() {
+        return dbConnection != null;
     }
 
     public ArrayList<String> getAllCompaniesList() {
@@ -167,6 +173,97 @@ public class DBHelper extends Configs {
                 Log.e("Error", Objects.requireNonNull(e.getMessage()));
             }
             return result;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ScanCounterInfo getCounterInfo(int counterId) {
+        ScanCounterInfo scanCounter = new ScanCounterInfo();
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<ScanCounterInfo> future = executorService.submit(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            String query = "SELECT " + Const.KEY_COMPANY + ", " + Const.KEY_COUNTER + ", " + Const.KEY_MULTIPLIER + ", " + Const.KEY_FLOOR + ", COALESCE(" + Const.KEY_PREVIOUS_VALUE + ", 0) AS " + Const.KEY_PREVIOUS_VALUE +
+                    " FROM " + Const.TABLE_COUNTERINFO + " LEFT JOIN " + Const.TABLE_VALUE + " ON " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " = " + Const.TABLE_VALUE + "." + Const.KEY_COUNTER_ID +
+                    " WHERE " + Const.KEY_COUNTER_ID + " = ?;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setInt(1, counterId);
+                resultSet = prSt.executeQuery();
+
+                if (resultSet.next()) {
+                    scanCounter.company = resultSet.getString(Const.KEY_COMPANY);
+                    scanCounter.counter = resultSet.getString(Const.KEY_COUNTER);
+                    scanCounter.multiplier = resultSet.getInt(Const.KEY_MULTIPLIER);
+                    scanCounter.floor = resultSet.getInt(Const.KEY_FLOOR);
+                    scanCounter.previousValue = resultSet.getInt(Const.KEY_PREVIOUS_VALUE);
+                }
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+            return scanCounter;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean counterExists(int counterId) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<Boolean> future = executorService.submit(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            String query = "SELECT * FROM " + Const.TABLE_COUNTERINFO +
+                    " WHERE " + Const.KEY_ID + " = ?;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setInt(1, counterId);
+                resultSet = prSt.executeQuery();
+
+                return resultSet.next();
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+            return false;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean counterHasWrittenDown(int counterId, LocalDate date) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<Boolean> future = executorService.submit(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            String query = "SELECT * FROM " + Const.TABLE_VALUE +
+                    " WHERE " + Const.KEY_COUNTER_ID + " = ? AND " + Const.KEY_DATE + " = ?;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setInt(1, counterId);
+                prSt.setDate(2, Date.valueOf(String.valueOf(date)));
+                resultSet = prSt.executeQuery();
+
+                return resultSet.next();
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+            return false;
         });
 
         try {

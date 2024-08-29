@@ -78,4 +78,8 @@
     <string name="title_previous">Poprzednie</string>
     <string name="title_current">Obecne</string>
     <string name="title_difference">Różnica</string>
+    <string name="scan_prompt">Zeskanuj kod QR, żeby rozpoznać licznik</string>
+    <string name="alert_CLOSE">Zamknij</string>
+    <string name="scan_this_counter_has_already_been_written_down">Ten licznik już spisany</string>
+    <string name="scan_error_line">Licznik nie znaleziony, spróbuj ponownie</string>
 </resources>

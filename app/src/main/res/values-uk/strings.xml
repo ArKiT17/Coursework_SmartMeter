@@ -79,4 +79,8 @@
     <string name="title_previous">Попереднє</string>
     <string name="title_current">Поточне</string>
     <string name="title_difference">Різниця</string>
+    <string name="scan_prompt">Зіскануй QR-код, щоб ідентифікувати лічильник</string>
+    <string name="alert_CLOSE">Закрити</string>
+    <string name="scan_this_counter_has_already_been_written_down">Цей лічильник вже було зчитано</string>
+    <string name="scan_error_line">Лічильник не знайдено, повторіть спробу</string>
 </resources>
