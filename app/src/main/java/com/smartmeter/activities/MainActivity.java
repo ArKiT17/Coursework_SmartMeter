@@ -26,7 +26,7 @@ import com.journeyapps.barcodescanner.ScanOptions;
 import com.smartmeter.Buffer;
 import com.smartmeter.CaptureAct;
 import com.smartmeter.R;
-import com.smartmeter.ScanCounterInfo;
+import com.smartmeter.CounterInfo;
 import com.smartmeter.database.Const;
 
 import java.time.LocalDate;
@@ -34,12 +34,10 @@ import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class MainActivity extends AppCompatActivity {
-    private ArrayAdapter<String> stringAdapter;
     private int id;
     private LocalDate toDate;
     private LocalDate today;
@@ -92,9 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 getString(R.string.november),
                 getString(R.string.december)
         ));
-
-        stringAdapter = new ArrayAdapter<String>(this, R.layout.spinner_style_dark, R.id.spinner_text_dark, Buffer.months);
-        dateList.setAdapter(stringAdapter);
+        dateList.setAdapter(new ArrayAdapter<>(this, R.layout.spinner_style_dark, R.id.spinner_text_dark, Buffer.months));
 
         today = LocalDate.now();
         dateList.setSelection(today.getMonthValue() - 1);
@@ -115,14 +111,9 @@ public class MainActivity extends AppCompatActivity {
                     finishAffinity();
                     System.exit(1);
                 }
-            });
-
-            builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                @Override
-                public void onCancel(DialogInterface dialog) {
-                    finishAffinity();
-                    System.exit(1);
-                }
+            }).setOnCancelListener(dialog -> {
+                finishAffinity();
+                System.exit(1);
             });
 
             AlertDialog dialog = builder.create();
@@ -132,12 +123,12 @@ public class MainActivity extends AppCompatActivity {
         dateList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                if ((Buffer.months.indexOf(dateList.getSelectedItem()) + 1 == 12) && (today.getMonthValue() == 1))
+                if ((dateList.getSelectedItemPosition() + 1 == 12) && (today.getMonthValue() == 1))
                     selectedYear = today.getYear() - 1;
                 else
                     selectedYear = today.getYear();
 
-                YearMonth selectedYearMonth = YearMonth.of(selectedYear, (Buffer.months.indexOf(dateList.getSelectedItem()) + 1));
+                YearMonth selectedYearMonth = YearMonth.of(selectedYear, (dateList.getSelectedItemPosition() + 1));
                 toDate = selectedYearMonth.atEndOfMonth();
 
                 numberCurrentValue.setText("");
@@ -173,12 +164,12 @@ public class MainActivity extends AppCompatActivity {
         counters.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                HashMap<String, Integer> counterInfo = Buffer.dbHelper.getCounterInfo(companies.getSelectedItem().toString(), adapterView.getItemAtPosition(position).toString());
-                if (!counterInfo.isEmpty()) {
-                    id = counterInfo.get(Const.KEY_ID);
-                    multiplier.setText(String.valueOf(counterInfo.get(Const.KEY_MULTIPLIER)));
-                    floorValue.setText(String.valueOf(counterInfo.get(Const.KEY_FLOOR)));
-                    numberPreviousValue.setText(String.valueOf(counterInfo.get(Const.KEY_PREVIOUS_VALUE)));
+                CounterInfo counterInfo = Buffer.dbHelper.getCounterInfo(companies.getSelectedItem().toString(), adapterView.getItemAtPosition(position).toString());
+                if (counterInfo.id != -1) {
+                    id = counterInfo.id;
+                    multiplier.setText(String.valueOf(counterInfo.multiplier));
+                    floorValue.setText(String.valueOf(counterInfo.floor));
+                    numberPreviousValue.setText(String.valueOf(counterInfo.previousValue));
                 }
             }
 

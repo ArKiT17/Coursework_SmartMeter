@@ -5,7 +5,7 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
-import com.smartmeter.ScanCounterInfo;
+import com.smartmeter.CounterInfo;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -144,13 +144,13 @@ public class DBHelper extends Configs {
         }
     }
 
-    public HashMap<String, Integer> getCounterInfo(String company, String counter) {
-        HashMap<String, Integer> result = new HashMap<>();
+    public CounterInfo getCounterInfo(String company, String counter) {
+        CounterInfo result = new CounterInfo();
         if (company.isEmpty() || counter.isEmpty())
-            return result;
+            return null;
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        Future<HashMap<String, Integer>> future = executorService.submit(() -> {
+        Future<CounterInfo> future = executorService.submit(() -> {
             setDbConnection();
 
             ResultSet resultSet = null;
@@ -164,10 +164,10 @@ public class DBHelper extends Configs {
                 resultSet = prSt.executeQuery();
 
                 if (resultSet.next()) {
-                    result.put(Const.KEY_ID, resultSet.getInt(Const.KEY_ID));
-                    result.put(Const.KEY_FLOOR, resultSet.getInt(Const.KEY_FLOOR));
-                    result.put(Const.KEY_MULTIPLIER, resultSet.getInt(Const.KEY_MULTIPLIER));
-                    result.put(Const.KEY_PREVIOUS_VALUE, resultSet.getInt(Const.KEY_PREVIOUS_VALUE));
+                    result.id = resultSet.getInt(Const.KEY_ID);
+                    result.floor = resultSet.getInt(Const.KEY_FLOOR);
+                    result.multiplier = resultSet.getInt(Const.KEY_MULTIPLIER);
+                    result.previousValue = resultSet.getInt(Const.KEY_PREVIOUS_VALUE);
                 }
             } catch (SQLException e) {
                 Log.e("Error", Objects.requireNonNull(e.getMessage()));
@@ -182,11 +182,11 @@ public class DBHelper extends Configs {
         }
     }
 
-    public ScanCounterInfo getCounterInfo(int counterId) {
-        ScanCounterInfo scanCounter = new ScanCounterInfo();
+    public CounterInfo getCounterInfo(int counterId) {
+        CounterInfo scanCounter = new CounterInfo();
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        Future<ScanCounterInfo> future = executorService.submit(() -> {
+        Future<CounterInfo> future = executorService.submit(() -> {
             setDbConnection();
 
             ResultSet resultSet = null;
