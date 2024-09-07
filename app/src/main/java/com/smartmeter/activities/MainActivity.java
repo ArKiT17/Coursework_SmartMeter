@@ -27,7 +27,6 @@ import com.smartmeter.Buffer;
 import com.smartmeter.CaptureAct;
 import com.smartmeter.R;
 import com.smartmeter.CounterInfo;
-import com.smartmeter.database.Const;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -165,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 CounterInfo counterInfo = Buffer.dbHelper.getCounterInfo(companies.getSelectedItem().toString(), adapterView.getItemAtPosition(position).toString());
-                if (counterInfo.id != -1) {
+                if (counterInfo != null) {
                     id = counterInfo.id;
                     multiplier.setText(String.valueOf(counterInfo.multiplier));
                     floorValue.setText(String.valueOf(counterInfo.floor));
@@ -302,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
         barLauncher.launch(options);
     }
 
-    private ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result -> {
+    private final ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result -> {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.alert_title_error));
         builder.setPositiveButton(getString(R.string.alert_CLOSE), null);

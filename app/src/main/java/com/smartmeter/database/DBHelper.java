@@ -15,7 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -43,7 +43,12 @@ public class DBHelper extends Configs {
     }
 
     public boolean hasDbConnection() {
-        return dbConnection != null;
+        try {
+            setDbConnection();
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     public ArrayList<String> getAllCompaniesList() {
@@ -86,7 +91,7 @@ public class DBHelper extends Configs {
                     " ON " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " = " + Const.KEY_COUNTER_ID +
                     " WHERE " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " NOT IN (SELECT " + Const.KEY_COUNTER_ID +
                     " FROM " + Const.TABLE_VALUE +
-                    " WHERE " + Const.KEY_DATE + " LIKE '%." + String.format("%02d", day.getMonthValue()) + "." + day.getYear() + "') ORDER BY " + Const.KEY_COMPANY + " ASC;";
+                    " WHERE " + Const.KEY_DATE + " LIKE '" + day.getYear() + "-" + String.format("%02d", day.getMonthValue()) + "-%') ORDER BY " + Const.KEY_COMPANY + " ASC;";
             try {
                 PreparedStatement prSt = dbConnection.prepareStatement(query);
                 resultSet = prSt.executeQuery();
@@ -209,6 +214,44 @@ public class DBHelper extends Configs {
                 Log.e("Error", Objects.requireNonNull(e.getMessage()));
             }
             return scanCounter;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<CounterInfo> getAllCountersList() {
+        List<CounterInfo> result = new ArrayList<>();
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<List<CounterInfo>> future = executorService.submit(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            String query = "SELECT " + Const.KEY_ID + ", " + Const.KEY_COMPANY + ", " + Const.KEY_ROOM + ", " + Const.KEY_FLOOR + ", " + Const.KEY_MULTIPLIER + ", " + Const.KEY_COUNTER +
+                    " FROM " + Const.TABLE_COUNTERINFO + ";";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                resultSet = prSt.executeQuery();
+
+                while (resultSet.next()) {
+                    result.add(new CounterInfo(
+                            resultSet.getInt(Const.KEY_ID),
+                            resultSet.getString(Const.KEY_COMPANY),
+                            resultSet.getString(Const.KEY_ROOM),
+                            resultSet.getInt(Const.KEY_FLOOR),
+                            resultSet.getInt(Const.KEY_MULTIPLIER),
+                            resultSet.getString(Const.KEY_COUNTER),
+                            -1, -1
+                    ));
+                }
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+            return result;
         });
 
         try {

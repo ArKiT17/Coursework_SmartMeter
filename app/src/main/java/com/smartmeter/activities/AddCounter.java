@@ -42,7 +42,7 @@ public class AddCounter extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        ArrayList<String> tmpCompanyList = new ArrayList<>(Buffer.companyList);
+        ArrayList<String> tmpCompanyList = Buffer.dbHelper.getAllCompaniesList();
         tmpCompanyList.add(0, "");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_style_light, R.id.spinner_text_light, tmpCompanyList);
         companies.setAdapter(adapter);

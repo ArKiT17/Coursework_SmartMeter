@@ -16,6 +16,9 @@
         android:theme="@style/Theme.SmartMeter"
         tools:targetApi="31">
         <activity
+            android:name=".CountersListAdapter"
+            android:exported="false" />
+        <activity
             android:name=".activities.AddCounter"
             android:exported="false" />
         <activity

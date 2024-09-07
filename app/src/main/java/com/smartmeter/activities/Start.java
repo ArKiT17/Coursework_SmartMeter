@@ -37,7 +37,6 @@ public class Start extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        Buffer.companyList = Buffer.dbHelper.getAllCompaniesList();
         startButton.setEnabled(true);
         countersButton.setEnabled(true);
         valuesButton.setEnabled(true);
