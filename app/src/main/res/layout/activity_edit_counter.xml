@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".activities.EditCounterActivity">
+
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/bg"
+        android:contentDescription="@string/cd_goBack"
+        android:onClick="deleteOnClick"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="110dp"
+        app:layout_constraintWidth_percent="0.22"
+        app:srcCompat="@drawable/delete" />
+
+    <LinearLayout
+        android:id="@+id/values"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.85">
+
+        <TextView
+            android:id="@+id/title_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/deleteButton"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/abhayalibre_medium"
+            android:text="@string/title_editing_counter_data"
+            android:textAlignment="center"
+            android:textColor="@color/text_red"
+            android:textSize="40sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/abhayalibre_medium"
+                android:gravity="center_vertical"
+                android:paddingEnd="10dp"
+                android:text="@string/title_company"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/textCompany"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:background="@drawable/enter_style"
+                android:ems="6"
+                android:inputType="text"
+                android:padding="5sp"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/abhayalibre_medium"
+                android:gravity="center_vertical"
+                android:paddingEnd="10dp"
+                android:text="@string/title_newRoom"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/textRoom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:background="@drawable/enter_style"
+                android:ems="6"
+                android:inputType="text"
+                android:padding="5sp"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/abhayalibre_medium"
+                android:gravity="center_vertical"
+                android:paddingEnd="10dp"
+                android:text="@string/title_newFloor"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/textFloor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:background="@drawable/enter_style"
+                android:ems="6"
+                android:inputType="numberDecimal"
+                android:padding="5sp"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/abhayalibre_medium"
+                android:gravity="center_vertical"
+                android:paddingEnd="10dp"
+                android:text="@string/title_newMultiplier"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/textMultiplier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:background="@drawable/enter_style"
+                android:ems="6"
+                android:inputType="numberDecimal"
+                android:padding="5sp"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/abhayalibre_medium"
+                android:gravity="center_vertical"
+                android:paddingEnd="10dp"
+                android:text="@string/title_counter"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/textCounter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:background="@drawable/enter_style"
+                android:ems="6"
+                android:inputType="text"
+                android:padding="5sp"
+                android:textColor="@color/text_dark"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/bg_dark"
+        android:fontFamily="@font/abhayalibre_medium"
+        android:onClick="saveCounterOnClick"
+        android:text="@string/btn_save"
+        android:textColor="@color/text_light"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/values" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

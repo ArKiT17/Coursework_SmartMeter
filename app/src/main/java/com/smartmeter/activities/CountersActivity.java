@@ -79,8 +79,8 @@ public class CountersActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Buffer.activeCounter = (CounterInfo)adapterView.getItemAtPosition(i);
-//                Intent editCounterPage = new Intent(CountersActivity.this, EditCounterActivity.class);
-//                startActivity(editCounterPage);
+                Intent editCounterPage = new Intent(CountersActivity.this, EditCounterActivity.class);
+                startActivity(editCounterPage);
             }
         });
     }

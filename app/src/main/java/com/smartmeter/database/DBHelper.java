@@ -341,6 +341,64 @@ public class DBHelper extends Configs {
         });
     }
 
+    public boolean deleteCounter(int counterId) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<Boolean> future = executorService.submit(() -> {
+            setDbConnection();
+
+            String query = "DELETE FROM " + Const.TABLE_COUNTERINFO + " WHERE " + Const.KEY_ID + " = ?;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setInt(1, counterId);
+                prSt.executeUpdate();
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+                return false;
+            }
+            return true;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean updateCounter(int id, String company, String room, int floor, int multiplier, String counter) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<Boolean> future = executorService.submit(() -> {
+            setDbConnection();
+
+            String query = "UPDATE " + Const.TABLE_COUNTERINFO + " SET " +
+                    Const.KEY_COMPANY + " = ?, " +
+                    Const.KEY_ROOM + " = ?, " +
+                    Const.KEY_FLOOR + " = ?, " +
+                    Const.KEY_MULTIPLIER + " = ?, " +
+                    Const.KEY_COUNTER + " = ? WHERE " + Const.KEY_ID + " = ?;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setString(1, company);
+                prSt.setString(2, room);
+                prSt.setInt(3, floor);
+                prSt.setInt(4, multiplier);
+                prSt.setString(5, counter);
+                prSt.setInt(6, id);
+                prSt.executeUpdate();
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+                return false;
+            }
+            return true;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void addValue(int counterId, LocalDate date, int curValue, int prevValue, int difference) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();

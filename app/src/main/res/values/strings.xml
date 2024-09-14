@@ -89,7 +89,7 @@
     <string name="toast_error">Error</string>
     <string name="toast_successfully_updated">Updated successfully</string>
     <string name="toast_successfully_deleted">Deleted successfully</string>
-    <string name="toast_invalid_number">Invalid number</string>
+    <string name="toast_counter_not_found">Counter not found</string>
     <string name="toast_failed_to_update">Updating error</string>
     <string name="toast_failed_to_delete">Deletion error</string>
 

@@ -60,7 +60,7 @@
     <string name="toast_failed_to_delete">Błąd usuwania</string>
     <string name="toast_successfully_updated">Dodano prawidłowo</string>
     <string name="toast_successfully_deleted">Usuniento prawidłowo</string>
-    <string name="toast_invalid_number">Nieprawidłowy numer</string>
+    <string name="toast_counter_not_found">Licznik nie znaleziony</string>
     <string name="january">Styczeń</string>
     <string name="february">Luty</string>
     <string name="march">Marzec</string>

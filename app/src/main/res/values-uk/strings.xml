@@ -61,7 +61,7 @@
     <string name="toast_failed_to_delete">Помилка при видаленні</string>
     <string name="toast_successfully_updated">Успішно оновлено</string>
     <string name="toast_successfully_deleted">Успішно видалено</string>
-    <string name="toast_invalid_number">Невірний номер</string>
+    <string name="toast_counter_not_found">Лічильник не знайдено</string>
     <string name="january">Січень</string>
     <string name="february">Лютий</string>
     <string name="march">Березень</string>

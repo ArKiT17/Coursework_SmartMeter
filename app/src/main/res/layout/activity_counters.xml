@@ -79,6 +79,7 @@
         android:layout_height="100dp"
         android:layout_marginVertical="10dp"
         android:layout_marginEnd="15dp"
+        android:adjustViewBounds="true"
         android:backgroundTint="@color/bg_dark"
         android:clickable="true"
         android:focusable="true"
