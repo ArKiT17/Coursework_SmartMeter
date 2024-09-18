@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="horizontal"
+    android:padding="4dp">
+
+    <TextView
+        android:id="@+id/value_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        android:fontFamily="@font/abhayalibre_medium"
+        android:text="11111"
+        android:textColor="@color/text_dark"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/value_putDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.3"
+        android:fontFamily="@font/abhayalibre_medium"
+        android:text="31.12.2023"
+        android:textColor="@color/text_dark"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/value_currentValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/abhayalibre_medium"
+        android:text="999999"
+        android:textColor="@color/text_dark"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/value_previousValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/abhayalibre_medium"
+        android:text="888888"
+        android:textColor="@color/text_dark"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/value_difference"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/abhayalibre_medium"
+        android:text="222222"
+        android:textColor="@color/text_dark"
+        android:textSize="25sp" />
+
+</LinearLayout>

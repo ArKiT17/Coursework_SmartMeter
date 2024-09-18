@@ -67,9 +67,9 @@
 
     <string name="history_id" translatable="false">ID</string>
     <string name="history_putDate">Date</string>
-    <string name="history_prevValue">Previous</string>
-    <string name="history_currValue">Current</string>
-    <string name="history_difference">Difference</string>
+    <string name="history_prevValue">Prev</string>
+    <string name="history_currValue">Curr</string>
+    <string name="history_difference">Diff</string>
 
     <!--  Alerts  -->
 

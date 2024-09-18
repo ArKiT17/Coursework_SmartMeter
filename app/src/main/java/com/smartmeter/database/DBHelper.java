@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.annotation.RequiresApi;
 
 import com.smartmeter.CounterInfo;
+import com.smartmeter.ValueInfo;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -366,6 +367,53 @@ public class DBHelper extends Configs {
 
                 while (resultSet.next()) {
                     result.add(resultSet.getString(Const.KEY_COUNTER));
+                }
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+            return result;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<ValueInfo> getAllValuesList(String company, String counter) {
+        ArrayList<ValueInfo> result = new ArrayList<>();
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<ArrayList<ValueInfo>> future = executorService.submit(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            String query = "SELECT " +
+                    Const.TABLE_VALUE + "." + Const.KEY_ID +
+                    ", DATE_FORMAT(" + Const.KEY_DATE + ", '%d.%m.%y') as " + Const.KEY_DATE + ", " +
+                    Const.KEY_PREVIOUS_VALUE + ", " + Const.KEY_CURRENT_VALUE + ", " +
+                    Const.KEY_DIFFERENCE + " FROM " + Const.TABLE_VALUE +
+                    " JOIN " + Const.TABLE_COUNTERINFO + " ON " +
+                    Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " = " +
+                    Const.TABLE_VALUE + "." + Const.KEY_COUNTER_ID +
+                    " WHERE " + Const.TABLE_COUNTERINFO + "." + Const.KEY_COMPANY + " = ? AND " +
+                    Const.TABLE_COUNTERINFO + "." + Const.KEY_COUNTER + " = ? ORDER BY " +
+                    Const.KEY_DATE + " DESC;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setString(1, company);
+                prSt.setString(2, counter);
+                resultSet = prSt.executeQuery();
+
+                while (resultSet.next()) {
+                    result.add(new ValueInfo(
+                            resultSet.getInt(Const.KEY_ID),
+                            resultSet.getString(Const.KEY_DATE),
+                            resultSet.getInt(Const.KEY_CURRENT_VALUE),
+                            resultSet.getInt(Const.KEY_PREVIOUS_VALUE),
+                            resultSet.getInt(Const.KEY_DIFFERENCE)
+                    ));
                 }
             } catch (SQLException e) {
                 Log.e("Error", Objects.requireNonNull(e.getMessage()));
