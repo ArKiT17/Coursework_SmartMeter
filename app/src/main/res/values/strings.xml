@@ -22,7 +22,7 @@
     <string name="title_company_dots">Company:</string>
     <string name="title_counter_name">Counter name</string>
     <string name="title_counter_dots">Counter:</string>
-    <string name="title_previousValue">Previous:</string>
+    <string name="title_previousValue">Previous</string>
     <string name="title_currentValue">Current:</string>
     <string name="title_values">Counter value</string>
     <string name="title_resultValue">Difference:</string>
@@ -81,7 +81,10 @@
     <string name="alert_YES">Yes</string>
     <string name="alert_NO">No</string>
     <string name="alert_CLOSE">Close</string>
+    <string name="alert_OK">OK</string>
     <string name="alert_are_you_sure">Are you sure?</string>
+    <string name="alert_values_not_found">Data not found</string>
+    <string name="alert_values_not_found_content">There was no data reading from the selected meter</string>
 
     <!--  Toasts  -->
 

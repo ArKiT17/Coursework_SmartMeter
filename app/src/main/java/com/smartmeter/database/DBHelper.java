@@ -55,7 +55,7 @@ public class DBHelper extends Configs {
         ArrayList<String> result = new ArrayList<>();
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        executorService.execute(() -> {
+        Future<ArrayList<String>> future = executorService.submit(() -> {
             setDbConnection();
 
             ResultSet resultSet = null;
@@ -71,9 +71,14 @@ public class DBHelper extends Configs {
             } catch (SQLException e) {
                 Log.e("Error", Objects.requireNonNull(e.getMessage()));
             }
+            return result;
         });
 
-        return result;
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // Компанії, лічильники яких не були списані у вибраний місяць (були списані до цього місяця або не списані взагалі ніколи)
@@ -159,9 +164,10 @@ public class DBHelper extends Configs {
             setDbConnection();
 
             ResultSet resultSet = null;
-            String query = "SELECT " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + ", " + Const.KEY_MULTIPLIER + ", " + Const.KEY_FLOOR + ", COALESCE(" + Const.KEY_PREVIOUS_VALUE + ", 0) AS " + Const.KEY_PREVIOUS_VALUE +
+            String query = "SELECT " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + ", " + Const.KEY_MULTIPLIER + ", " + Const.KEY_FLOOR + ", COALESCE(" + Const.KEY_CURRENT_VALUE + ", 0) AS " + Const.KEY_CURRENT_VALUE +
                     " FROM " + Const.TABLE_COUNTERINFO + " LEFT JOIN " + Const.TABLE_VALUE + " ON " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " = " + Const.TABLE_VALUE + "." + Const.KEY_COUNTER_ID +
-                    " WHERE " + Const.KEY_COMPANY + " = ? AND " + Const.KEY_COUNTER + " = ?;";
+                    " WHERE " + Const.KEY_COMPANY + " = ? AND " + Const.KEY_COUNTER + " = ?" +
+                    " ORDER BY " + Const.KEY_DATE + " DESC LIMIT 1;";
             try {
                 PreparedStatement prSt = dbConnection.prepareStatement(query);
                 prSt.setString(1, company);
@@ -172,7 +178,7 @@ public class DBHelper extends Configs {
                     result.id = resultSet.getInt(Const.KEY_ID);
                     result.floor = resultSet.getInt(Const.KEY_FLOOR);
                     result.multiplier = resultSet.getInt(Const.KEY_MULTIPLIER);
-                    result.previousValue = resultSet.getInt(Const.KEY_PREVIOUS_VALUE);
+                    result.currentValue = resultSet.getInt(Const.KEY_CURRENT_VALUE);
                 }
             } catch (SQLException e) {
                 Log.e("Error", Objects.requireNonNull(e.getMessage()));
@@ -197,7 +203,8 @@ public class DBHelper extends Configs {
             ResultSet resultSet = null;
             String query = "SELECT " + Const.KEY_COMPANY + ", " + Const.KEY_COUNTER + ", " + Const.KEY_MULTIPLIER + ", " + Const.KEY_FLOOR + ", COALESCE(" + Const.KEY_PREVIOUS_VALUE + ", 0) AS " + Const.KEY_PREVIOUS_VALUE +
                     " FROM " + Const.TABLE_COUNTERINFO + " LEFT JOIN " + Const.TABLE_VALUE + " ON " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " = " + Const.TABLE_VALUE + "." + Const.KEY_COUNTER_ID +
-                    " WHERE " + Const.KEY_COUNTER_ID + " = ?;";
+                    " WHERE " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " = ?" +
+                    " ORDER BY " + Const.KEY_DATE + " DESC LIMIT 1;";
             try {
                 PreparedStatement prSt = dbConnection.prepareStatement(query);
                 prSt.setInt(1, counterId);
@@ -214,6 +221,87 @@ public class DBHelper extends Configs {
                 Log.e("Error", Objects.requireNonNull(e.getMessage()));
             }
             return scanCounter;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public CounterInfo getLastValueInfo(String company, String counter) {
+        CounterInfo result = new CounterInfo();
+        if (company.isEmpty() || counter.isEmpty())
+            return null;
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<CounterInfo> future = executorService.submit(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            String query = "SELECT " + Const.TABLE_VALUE + "." + Const.KEY_ID + ", " + Const.KEY_FLOOR + ", " + Const.KEY_MULTIPLIER + ", " + Const.KEY_DATE + ", " + Const.KEY_CURRENT_VALUE + ", " + Const.KEY_PREVIOUS_VALUE +
+                    " FROM " + Const.TABLE_COUNTERINFO + " JOIN " + Const.TABLE_VALUE + " ON " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " = " + Const.TABLE_VALUE + "." + Const.KEY_COUNTER_ID +
+                    " WHERE " + Const.KEY_COMPANY + " = ? AND " + Const.KEY_COUNTER + " = ?" +
+                    " ORDER BY " + Const.KEY_DATE + " DESC LIMIT 1;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setString(1, company);
+                prSt.setString(2, counter);
+                resultSet = prSt.executeQuery();
+
+                if (resultSet.next()) {
+                    result.id = resultSet.getInt(Const.KEY_ID);
+                    result.floor = resultSet.getInt(Const.KEY_FLOOR);
+                    result.multiplier = resultSet.getInt(Const.KEY_MULTIPLIER);
+                    result.lastDate = resultSet.getString(Const.KEY_DATE);
+                    result.currentValue = resultSet.getInt(Const.KEY_CURRENT_VALUE);
+                    result.previousValue = resultSet.getInt(Const.KEY_PREVIOUS_VALUE);
+                }
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+            return result;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public CounterInfo getLastValueInfo(int counterId) {
+        CounterInfo result = new CounterInfo();
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<CounterInfo> future = executorService.submit(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            String query = "SELECT " + Const.TABLE_VALUE + "." + Const.KEY_ID + ", " + Const.KEY_COMPANY + ", " + Const.KEY_FLOOR + ", " + Const.KEY_MULTIPLIER + ", " + Const.KEY_COUNTER + ", " + Const.KEY_DATE + ", " + Const.KEY_CURRENT_VALUE + ", " + Const.KEY_PREVIOUS_VALUE +
+                    " FROM " + Const.TABLE_COUNTERINFO + " JOIN " + Const.TABLE_VALUE + " ON " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " = " + Const.TABLE_VALUE + "." + Const.KEY_COUNTER_ID +
+                    " WHERE " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " = ?" +
+                    " ORDER BY " + Const.KEY_DATE + " DESC LIMIT 1;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setInt(1, counterId);
+                resultSet = prSt.executeQuery();
+
+                if (resultSet.next()) {
+                    result.id = resultSet.getInt(Const.KEY_ID);
+                    result.company = resultSet.getString(Const.KEY_COMPANY);
+                    result.floor = resultSet.getInt(Const.KEY_FLOOR);
+                    result.multiplier = resultSet.getInt(Const.KEY_MULTIPLIER);
+                    result.counter = resultSet.getString(Const.KEY_COUNTER);
+                    result.lastDate = resultSet.getString(Const.KEY_DATE);
+                    result.currentValue = resultSet.getInt(Const.KEY_CURRENT_VALUE);
+                    result.previousValue = resultSet.getInt(Const.KEY_PREVIOUS_VALUE);
+                }
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+            return result;
         });
 
         try {
@@ -245,8 +333,39 @@ public class DBHelper extends Configs {
                             resultSet.getInt(Const.KEY_FLOOR),
                             resultSet.getInt(Const.KEY_MULTIPLIER),
                             resultSet.getString(Const.KEY_COUNTER),
-                            -1, -1
+                            -1, -1, null
                     ));
+                }
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+            return result;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<String> getAllCountersList(String company) {
+        ArrayList<String> result = new ArrayList<>();
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<ArrayList<String>> future = executorService.submit(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            String query = "SELECT " + Const.KEY_COUNTER +
+                    " FROM " + Const.TABLE_COUNTERINFO + " WHERE " + Const.KEY_COMPANY + " = ?;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setString(1, company);
+                resultSet = prSt.executeQuery();
+
+                while (resultSet.next()) {
+                    result.add(resultSet.getString(Const.KEY_COUNTER));
                 }
             } catch (SQLException e) {
                 Log.e("Error", Objects.requireNonNull(e.getMessage()));
@@ -365,6 +484,30 @@ public class DBHelper extends Configs {
         }
     }
 
+    public boolean deleteValue(int idValue) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<Boolean> future = executorService.submit(() -> {
+            setDbConnection();
+
+            String query = "DELETE FROM " + Const.TABLE_VALUE + " WHERE " + Const.KEY_ID + " = ?;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setInt(1, idValue);
+                prSt.executeUpdate();
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+                return false;
+            }
+            return true;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public boolean updateCounter(int id, String company, String room, int floor, int multiplier, String counter) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         Future<Boolean> future = executorService.submit(() -> {
@@ -384,6 +527,36 @@ public class DBHelper extends Configs {
                 prSt.setInt(4, multiplier);
                 prSt.setString(5, counter);
                 prSt.setInt(6, id);
+                prSt.executeUpdate();
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+                return false;
+            }
+            return true;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean updateValue(int idValue, int currentValue, int previousValue, int difference) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<Boolean> future = executorService.submit(() -> {
+            setDbConnection();
+
+            String query = "UPDATE " + Const.TABLE_VALUE + " SET " +
+                    Const.KEY_CURRENT_VALUE + " = ?, " +
+                    Const.KEY_PREVIOUS_VALUE + " = ?, " +
+                    Const.KEY_DIFFERENCE + " = ? WHERE " + Const.KEY_ID + " = ?;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setInt(1, currentValue);
+                prSt.setInt(2, previousValue);
+                prSt.setInt(3, difference);
+                prSt.setInt(4, idValue);
                 prSt.executeUpdate();
             } catch (SQLException e) {
                 Log.e("Error", Objects.requireNonNull(e.getMessage()));

@@ -96,10 +96,13 @@
                 app:layout_constraintStart_toEndOf="@id/eTitleFloor"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Spinner
+            <TextView
                 android:id="@+id/eDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/abhayalibre_medium"
+                android:textColor="@color/text_light"
+                android:textSize="35sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -310,7 +313,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/abhayalibre_medium"
-                android:text=" *"
+                android:text=" * "
                 android:textColor="@color/text_dark"
                 android:textSize="30sp" />
 
@@ -319,7 +322,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/abhayalibre_medium"
-                android:text=" 1"
+                android:text="1"
                 android:textColor="@color/text_dark"
                 android:textSize="30sp" />
 

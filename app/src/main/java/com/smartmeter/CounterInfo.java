@@ -9,8 +9,9 @@ public class CounterInfo {
     public String counter;
     public int previousValue;
     public int currentValue;
+    public String lastDate;
 
-    public CounterInfo(int id, String company, String room, int floor, int multiplier, String counter, int previousValue, int currentValue) {
+    public CounterInfo(int id, String company, String room, int floor, int multiplier, String counter, int previousValue, int currentValue, String lastDate) {
         this.id = id;
         this.company = company;
         this.room = room;
@@ -19,6 +20,7 @@ public class CounterInfo {
         this.counter = counter;
         this.previousValue = previousValue;
         this.currentValue = currentValue;
+        this.lastDate = lastDate;
     }
 
     public CounterInfo() {
@@ -30,5 +32,6 @@ public class CounterInfo {
         counter = null;
         previousValue = -1;
         currentValue = -1;
+        lastDate = null;
     }
 }

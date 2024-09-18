@@ -17,7 +17,7 @@
     <string name="title_company_dots">Najemca:</string>
     <string name="title_counter_name">Nazwa licznika</string>
     <string name="title_counter_dots">Licznik:</string>
-    <string name="title_previousValue">Poprzednie:</string>
+    <string name="title_previousValue">Poprzednie</string>
     <string name="title_currentValue">Obecne:</string>
     <string name="title_values">Stan licznika energetycznego</string>
     <string name="title_resultValue">Różnica:</string>
@@ -82,4 +82,7 @@
     <string name="alert_CLOSE">Zamknij</string>
     <string name="scan_this_counter_has_already_been_written_down">Ten licznik już spisany</string>
     <string name="scan_error_line">Licznik nie znaleziony, spróbuj ponownie</string>
+    <string name="alert_values_not_found">Danych nie znaleziono</string>
+    <string name="alert_values_not_found_content">Nie było żadnego odczytu danych z wybranego licznika</string>
+    <string name="alert_OK">OK</string>
 </resources>

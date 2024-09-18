@@ -18,7 +18,7 @@
     <string name="title_company_dots">Компанія:</string>
     <string name="title_counter_name">Назва лічильника</string>
     <string name="title_counter_dots">Лічильник:</string>
-    <string name="title_previousValue">Попереднє:</string>
+    <string name="title_previousValue">Попереднє</string>
     <string name="title_currentValue">Поточне:</string>
     <string name="title_values">Стан лічильника</string>
     <string name="title_resultValue">Різниця:</string>
@@ -83,4 +83,7 @@
     <string name="alert_CLOSE">Закрити</string>
     <string name="scan_this_counter_has_already_been_written_down">Цей лічильник вже було зчитано</string>
     <string name="scan_error_line">Лічильник не знайдено, повторіть спробу</string>
+    <string name="alert_values_not_found">Даних не знайдено</string>
+    <string name="alert_values_not_found_content">З вибраного лічильника не було жодного зчитування даних</string>
+    <string name="alert_OK">ОК</string>
 </resources>

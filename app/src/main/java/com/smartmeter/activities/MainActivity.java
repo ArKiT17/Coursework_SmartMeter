@@ -149,8 +149,10 @@ public class MainActivity extends AppCompatActivity {
         companies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                if (Buffer.scannerInfo != null)
+                if (Buffer.scannerInfo != null) {
+                    Buffer.scannerInfo = null;
                     return;
+                }
 
                 setSpaceAdapter(counters, Buffer.dbHelper.getNoneZeroCountersList(toDate, adapterView.getItemAtPosition(position).toString()));
             }
@@ -164,11 +166,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 CounterInfo counterInfo = Buffer.dbHelper.getCounterInfo(companies.getSelectedItem().toString(), adapterView.getItemAtPosition(position).toString());
+                numberCurrentValue.setEnabled(!counters.getSelectedItem().toString().isEmpty());
+                numberPreviousValue.setEnabled(!counters.getSelectedItem().toString().isEmpty());
                 if (counterInfo != null) {
                     id = counterInfo.id;
                     multiplier.setText(String.valueOf(counterInfo.multiplier));
                     floorValue.setText(String.valueOf(counterInfo.floor));
-                    numberPreviousValue.setText(String.valueOf(counterInfo.previousValue));
+                    numberPreviousValue.setText(String.valueOf(counterInfo.currentValue));
+                } else {
+                    id = -1;
+                    multiplier.setText("1");
+                    floorValue.setText("");
+                    numberPreviousValue.setText("");
                 }
             }
 
@@ -294,7 +303,6 @@ public class MainActivity extends AppCompatActivity {
     public void ScannerButton(View view) {
         ScanOptions options = new ScanOptions();
         options.setPrompt(getString(R.string.scan_prompt));
-        options.setOrientationLocked(true);
         options.setBeepEnabled(false);
         options.setTorchEnabled(true);
         options.setCaptureActivity(CaptureAct.class);
