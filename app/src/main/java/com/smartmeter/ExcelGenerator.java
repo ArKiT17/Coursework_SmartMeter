@@ -103,6 +103,9 @@ public class ExcelGenerator {
         try {
             FileOutputStream fileOutputStream = context.openFileOutput(fileName, MODE_PRIVATE);
             hssfWorkbook.write(fileOutputStream);
+
+            fileOutputStream.flush();
+            fileOutputStream.close();
         } catch (Exception e) {
             Log.e("Error", Objects.requireNonNull(e.getMessage()));
         }

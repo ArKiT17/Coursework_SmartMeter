@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.smartmeter.Buffer;
+import com.smartmeter.MailSender;
 import com.smartmeter.models.CounterInfo;
 import com.smartmeter.ExcelGenerator;
 import com.smartmeter.R;
@@ -95,6 +96,9 @@ public class ExportMailActivity extends AppCompatActivity {
 
         String fileName = getString(R.string.title_counters) + " " + month.getSelectedItem().toString() + " " + year.getSelectedItem().toString() + ".xls";
         excel.save(fileName);
+
+        MailSender mailSender = new MailSender(this);
+        mailSender.send(fileName, mail.getText().toString());
 
         finish();
     }

@@ -29,6 +29,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    packagingOptions {
+        exclude("META-INF/LICENSE.md")
+        exclude("META-INF/NOTICE.md")
+    }
 }
 
 dependencies {
@@ -43,4 +48,6 @@ dependencies {
     implementation(libs.mysql.connector.java)
     implementation(libs.zxing.android.embedded)
     implementation(libs.poi)
+    implementation(libs.android.mail)
+    implementation(libs.android.activation)
 }
