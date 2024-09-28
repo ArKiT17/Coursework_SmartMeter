@@ -1,6 +1,6 @@
 package com.smartmeter;
 
-public class CounterInfo {
+public class CounterInfo implements Comparable<CounterInfo> {
     public int id;
     public String company;
     public String room;
@@ -10,8 +10,9 @@ public class CounterInfo {
     public int previousValue;
     public int currentValue;
     public String lastDate;
+    public int difference;
 
-    public CounterInfo(int id, String company, String room, int floor, int multiplier, String counter, int previousValue, int currentValue, String lastDate) {
+    public CounterInfo(int id, String company, String room, int floor, int multiplier, String counter, int previousValue, int currentValue, String lastDate, int difference) {
         this.id = id;
         this.company = company;
         this.room = room;
@@ -21,6 +22,7 @@ public class CounterInfo {
         this.previousValue = previousValue;
         this.currentValue = currentValue;
         this.lastDate = lastDate;
+        this.difference = difference;
     }
 
     public CounterInfo() {
@@ -33,5 +35,11 @@ public class CounterInfo {
         previousValue = -1;
         currentValue = -1;
         lastDate = null;
+        difference = -1;
+    }
+
+    @Override
+    public int compareTo(CounterInfo o) {
+        return this.company.compareTo(o.company);
     }
 }

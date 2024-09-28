@@ -115,4 +115,18 @@
     <string name="title_current">Current</string>
     <string name="title_difference">Difference</string>
 
+    <!--  Excel  -->
+
+    <string name="excel_id" translatable="false">ID</string>
+    <string name="excel_company_name">Company name</string>
+    <string name="excel_room_code">Room code</string>
+    <string name="excel_floor">Floor</string>
+    <string name="excel_multiplier">Multiplier</string>
+    <string name="excel_counter_code">Counter code</string>
+    <string name="excel_inventory_date">Inventory date</string>
+    <string name="excel_current_value">Current value</string>
+    <string name="excel_previous_value">Previous value</string>
+    <string name="excel_difference">Difference</string>
+    <string name="excel_total">Total</string>
+
 </resources>

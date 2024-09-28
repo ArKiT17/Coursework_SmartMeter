@@ -32,7 +32,6 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
@@ -74,21 +73,6 @@ public class MainActivity extends AppCompatActivity {
         saveButton = findViewById(R.id.saveButton);
         dateList = findViewById(R.id.dateList);
 
-        Buffer.months.clear();
-        Buffer.months.addAll(Arrays.asList(
-                getString(R.string.january),
-                getString(R.string.february),
-                getString(R.string.march),
-                getString(R.string.april),
-                getString(R.string.may),
-                getString(R.string.june),
-                getString(R.string.july),
-                getString(R.string.august),
-                getString(R.string.september),
-                getString(R.string.october),
-                getString(R.string.november),
-                getString(R.string.december)
-        ));
         dateList.setAdapter(new ArrayAdapter<>(this, R.layout.spinner_style_dark, R.id.spinner_text_dark, Buffer.months));
 
         today = LocalDate.now();

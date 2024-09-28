@@ -42,4 +42,5 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.mysql.connector.java)
     implementation(libs.zxing.android.embedded)
+    implementation(libs.poi)
 }

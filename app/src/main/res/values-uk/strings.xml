@@ -86,4 +86,14 @@
     <string name="alert_values_not_found">Даних не знайдено</string>
     <string name="alert_values_not_found_content">З вибраного лічильника не було жодного зчитування даних</string>
     <string name="alert_OK">ОК</string>
+    <string name="excel_company_name">Назва компанії</string>
+    <string name="excel_room_code">Номер/код приміщення</string>
+    <string name="excel_floor">Поверх</string>
+    <string name="excel_multiplier">Множник</string>
+    <string name="excel_counter_code">Номер лічильника</string>
+    <string name="excel_inventory_date">Дата зчитування даних</string>
+    <string name="excel_current_value">Поточне значення</string>
+    <string name="excel_previous_value">Попереднє значення</string>
+    <string name="excel_difference">Спожито</string>
+    <string name="excel_total">Загальне споживання</string>
 </resources>

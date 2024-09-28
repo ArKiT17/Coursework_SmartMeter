@@ -334,7 +334,7 @@ public class DBHelper extends Configs {
                             resultSet.getInt(Const.KEY_FLOOR),
                             resultSet.getInt(Const.KEY_MULTIPLIER),
                             resultSet.getString(Const.KEY_COUNTER),
-                            -1, -1, null
+                            -1, -1, null, -1
                     ));
                 }
             } catch (SQLException e) {
@@ -367,6 +367,35 @@ public class DBHelper extends Configs {
 
                 while (resultSet.next()) {
                     result.add(resultSet.getString(Const.KEY_COUNTER));
+                }
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+            return result;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int getFirstYear() {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<Integer> future = executorService.submit(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            int result = -1;
+            String query = "SELECT DISTINCT DATE_FORMAT(" + Const.KEY_DATE + ", '%Y') as " + Const.KEY_DATE +
+                    " FROM " + Const.TABLE_VALUE + " ORDER BY " + Const.KEY_DATE + " ASC LIMIT 1;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                resultSet = prSt.executeQuery();
+
+                if (resultSet.next()) {
+                    result = resultSet.getInt(Const.KEY_DATE);
                 }
             } catch (SQLException e) {
                 Log.e("Error", Objects.requireNonNull(e.getMessage()));
@@ -426,6 +455,104 @@ public class DBHelper extends Configs {
         } catch (ExecutionException | InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public ArrayList<CounterInfo> getExportInfo(String month, String year) {
+        ArrayList<CounterInfo> result = new ArrayList<>();
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<ArrayList<CounterInfo>> future = executorService.submit(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            String query = "SELECT " +
+                    Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + ", " +
+                    Const.KEY_COMPANY + ", " +
+                    Const.KEY_ROOM + ", " +
+                    Const.KEY_FLOOR + ", " +
+                    Const.KEY_MULTIPLIER + ", " +
+                    Const.KEY_COUNTER + ", " +
+                    Const.KEY_DATE + ", " +
+                    Const.KEY_CURRENT_VALUE + ", " +
+                    Const.KEY_PREVIOUS_VALUE + ", " +
+                    Const.KEY_DIFFERENCE +
+                    " FROM " + Const.TABLE_COUNTERINFO + " JOIN " + Const.TABLE_VALUE + " ON " +
+                    Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " = " + Const.TABLE_VALUE + "." + Const.KEY_COUNTER_ID +
+                    " WHERE " + Const.KEY_DATE + " LIKE '" + year + "-" + month + "-%';";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                resultSet = prSt.executeQuery();
+
+                while (resultSet.next()) {
+                    result.add(new CounterInfo(
+                            resultSet.getInt(Const.KEY_ID),
+                            resultSet.getString(Const.KEY_COMPANY),
+                            resultSet.getString(Const.KEY_ROOM),
+                            resultSet.getInt(Const.KEY_FLOOR),
+                            resultSet.getInt(Const.KEY_MULTIPLIER),
+                            resultSet.getString(Const.KEY_COUNTER),
+                            resultSet.getInt(Const.KEY_PREVIOUS_VALUE),
+                            resultSet.getInt(Const.KEY_CURRENT_VALUE),
+                            resultSet.getString(Const.KEY_DATE),
+                            resultSet.getInt(Const.KEY_DIFFERENCE)
+                    ));
+                }
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+            return result;
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String getDefaultMail() {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<String> future = executorService.submit(() -> {
+            setDbConnection();
+
+            ResultSet resultSet = null;
+            String query = "SELECT " + Const.KEY_DEFAULT_MAIL + " FROM " + Const.TABLE_BUFFER + ";";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                resultSet = prSt.executeQuery();
+
+                if (resultSet.next()) {
+                    return resultSet.getString(Const.KEY_DEFAULT_MAIL);
+                }
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+            return "";
+        });
+
+        try {
+            return future.get();
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void setDefaultMail(String mail) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+            setDbConnection();
+
+            String query = "UPDATE " + Const.TABLE_BUFFER + " SET " +
+                    Const.KEY_DEFAULT_MAIL + " = ? WHERE " +
+                    Const.KEY_ID + " = 1;";
+            try {
+                PreparedStatement prSt = dbConnection.prepareStatement(query);
+                prSt.setString(1, mail);
+                prSt.executeUpdate();
+            } catch (SQLException e) {
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+            }
+        });
     }
 
     public boolean counterExists(int counterId) {
@@ -620,7 +747,6 @@ public class DBHelper extends Configs {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public void addValue(int counterId, LocalDate date, int curValue, int prevValue, int difference) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(() -> {

@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.smartmeter.Buffer;
 import com.smartmeter.R;
 
+import java.util.Arrays;
+
 public class Start extends AppCompatActivity {
     private Button startButton;
     private Button countersButton;
@@ -31,6 +33,22 @@ public class Start extends AppCompatActivity {
         valuesButton = findViewById(R.id.valuesButton);
         exportButton = findViewById(R.id.exportButton);
         historyButton = findViewById(R.id.historyButton);
+
+        Buffer.months.clear();
+        Buffer.months.addAll(Arrays.asList(
+                getString(R.string.january),
+                getString(R.string.february),
+                getString(R.string.march),
+                getString(R.string.april),
+                getString(R.string.may),
+                getString(R.string.june),
+                getString(R.string.july),
+                getString(R.string.august),
+                getString(R.string.september),
+                getString(R.string.october),
+                getString(R.string.november),
+                getString(R.string.december)
+        ));
     }
 
     @Override

@@ -85,4 +85,14 @@
     <string name="alert_values_not_found">Danych nie znaleziono</string>
     <string name="alert_values_not_found_content">Nie było żadnego odczytu danych z wybranego licznika</string>
     <string name="alert_OK">OK</string>
+    <string name="excel_company_name">Nazwa firmy</string>
+    <string name="excel_room_code">Nr/kod lokalu</string>
+    <string name="excel_floor">Piętro obiektu</string>
+    <string name="excel_multiplier">Przekładnik</string>
+    <string name="excel_counter_code">Licznik nr</string>
+    <string name="excel_inventory_date">Data spisu z natury</string>
+    <string name="excel_current_value">Stan bieżący</string>
+    <string name="excel_previous_value">Stan poprzedni</string>
+    <string name="excel_difference">Zużycie</string>
+    <string name="excel_total">Zużycie razem</string>
 </resources>
