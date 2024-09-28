@@ -1,6 +1,7 @@
 package com.smartmeter;
 
 import com.smartmeter.database.DBHelper;
+import com.smartmeter.models.CounterInfo;
 
 import java.util.ArrayList;
 

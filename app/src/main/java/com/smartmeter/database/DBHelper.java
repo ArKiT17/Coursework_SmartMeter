@@ -5,8 +5,8 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
-import com.smartmeter.CounterInfo;
-import com.smartmeter.ValueInfo;
+import com.smartmeter.models.CounterInfo;
+import com.smartmeter.models.ValueInfo;
 
 import java.sql.Connection;
 import java.sql.Date;

@@ -20,13 +20,13 @@
         android:theme="@style/Theme.SmartMeter"
         tools:targetApi="31">
         <activity
-            android:name=".ValuesListAdapter"
+            android:name=".adapters.ValuesListAdapter"
             android:exported="false" />
         <activity
             android:name=".activities.EditCounterActivity"
             android:exported="false" />
         <activity
-            android:name=".CountersListAdapter"
+            android:name=".adapters.CountersListAdapter"
             android:exported="false" />
         <activity
             android:name=".activities.AddCounter"

@@ -2,7 +2,6 @@ package com.smartmeter.activities;
 
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
-import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -11,18 +10,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.smartmeter.Buffer;
 import com.smartmeter.R;
-import com.smartmeter.ValuesListAdapter;
+import com.smartmeter.adapters.ValuesListAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.O)

@@ -1,4 +1,4 @@
-package com.smartmeter;
+package com.smartmeter.models;
 
 public class ValueInfo {
     public int id;

@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:paddingVertical="10dp"
     android:paddingHorizontal="18dp"
-    tools:context=".CountersListAdapter">
+    tools:context=".adapters.CountersListAdapter">
 
     <LinearLayout
         android:layout_width="match_parent"

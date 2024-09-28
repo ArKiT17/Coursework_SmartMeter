@@ -1,4 +1,4 @@
-package com.smartmeter;
+package com.smartmeter.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.smartmeter.R;
+import com.smartmeter.models.CounterInfo;
 
 import java.util.List;
 

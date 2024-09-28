@@ -14,8 +14,8 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.smartmeter.Buffer;
-import com.smartmeter.CounterInfo;
-import com.smartmeter.CountersListAdapter;
+import com.smartmeter.models.CounterInfo;
+import com.smartmeter.adapters.CountersListAdapter;
 import com.smartmeter.R;
 
 import java.util.ArrayList;

@@ -26,7 +26,7 @@ import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 import com.smartmeter.Buffer;
 import com.smartmeter.CaptureAct;
-import com.smartmeter.CounterInfo;
+import com.smartmeter.models.CounterInfo;
 import com.smartmeter.R;
 
 import java.util.ArrayList;
