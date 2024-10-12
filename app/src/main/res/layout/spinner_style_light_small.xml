@@ -8,9 +8,11 @@
         android:id="@+id/spinner_text_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/abhayalibre_medium"
+        android:layout_centerVertical="true"
+        android:fontFamily="@font/ptserif_regular"
         android:paddingHorizontal="10dp"
         android:paddingVertical="5dp"
+        android:singleLine="true"
         android:textColor="@color/spinner_text_grey"
         android:textSize="20sp" />
 

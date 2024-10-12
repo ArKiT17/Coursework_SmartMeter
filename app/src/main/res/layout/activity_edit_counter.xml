@@ -15,7 +15,7 @@
         android:layout_margin="10dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/bg"
-        android:contentDescription="@string/cd_goBack"
+        android:contentDescription="delete"
         android:onClick="deleteOnClick"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,11 +42,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/deleteButton"
             android:layout_marginBottom="20dp"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="@string/title_editing_counter_data"
             android:textAlignment="center"
             android:textColor="@color/text_red"
-            android:textSize="40sp" />
+            android:textSize="38sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,13 +56,13 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:layout_weight="0.45"
+                android:fontFamily="@font/ptserif_regular"
                 android:gravity="center_vertical"
                 android:paddingEnd="10dp"
                 android:text="@string/title_company"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/textCompany"
@@ -74,7 +74,7 @@
                 android:inputType="text"
                 android:padding="5sp"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
 
@@ -86,13 +86,13 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:layout_weight="0.45"
+                android:fontFamily="@font/ptserif_regular"
                 android:gravity="center_vertical"
                 android:paddingEnd="10dp"
                 android:text="@string/title_newRoom"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/textRoom"
@@ -104,7 +104,7 @@
                 android:inputType="text"
                 android:padding="5sp"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
 
@@ -116,13 +116,13 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:layout_weight="0.45"
+                android:fontFamily="@font/ptserif_regular"
                 android:gravity="center_vertical"
                 android:paddingEnd="10dp"
                 android:text="@string/title_newFloor"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/textFloor"
@@ -134,7 +134,7 @@
                 android:inputType="numberDecimal"
                 android:padding="5sp"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
 
@@ -146,13 +146,13 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:layout_weight="0.45"
+                android:fontFamily="@font/ptserif_regular"
                 android:gravity="center_vertical"
                 android:paddingEnd="10dp"
                 android:text="@string/title_newMultiplier"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/textMultiplier"
@@ -164,7 +164,7 @@
                 android:inputType="numberDecimal"
                 android:padding="5sp"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
 
@@ -176,13 +176,13 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.4"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:layout_weight="0.45"
+                android:fontFamily="@font/ptserif_regular"
                 android:gravity="center_vertical"
                 android:paddingEnd="10dp"
                 android:text="@string/title_counter"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/textCounter"
@@ -194,7 +194,7 @@
                 android:inputType="text"
                 android:padding="5sp"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
 
@@ -205,11 +205,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:backgroundTint="@color/bg_dark"
-        android:fontFamily="@font/abhayalibre_medium"
+        android:fontFamily="@font/ptserif_regular"
         android:onClick="saveCounterOnClick"
         android:text="@string/btn_save"
         android:textColor="@color/text_light"
-        android:textSize="40sp"
+        android:textSize="38sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

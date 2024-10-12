@@ -13,11 +13,11 @@
         android:id="@+id/titleNewCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/abhayalibre_medium"
+        android:fontFamily="@font/ptserif_regular"
         android:text="@string/title_newCounter"
         android:textAlignment="center"
         android:textColor="@color/text_light"
-        android:textSize="50sp"
+        android:textSize="38sp"
         app:layout_constraintBottom_toTopOf="@id/values"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,10 +48,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_new_company"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/newCompany"
@@ -63,17 +63,17 @@
                 android:inputType="text"
                 android:padding="5sp"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="@string/title_or"
             android:textColor="@color/text_dark"
-            android:textSize="35sp" />
+            android:textSize="28sp" />
 
         <Spinner
             android:id="@+id/companyList"
@@ -91,10 +91,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_newRoom"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/newRoom"
@@ -106,7 +106,7 @@
                 android:inputType="text"
                 android:padding="5sp"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
 
@@ -120,10 +120,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_newFloor"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/newFloor"
@@ -135,7 +135,7 @@
                 android:inputType="numberSigned"
                 android:padding="5sp"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
 
@@ -149,10 +149,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_newMultiplier"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/newMultiplier"
@@ -164,7 +164,7 @@
                 android:inputType="numberDecimal"
                 android:padding="5sp"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
 
@@ -178,10 +178,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_counter_name"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="28sp" />
 
             <EditText
                 android:id="@+id/newCounter"
@@ -193,7 +193,7 @@
                 android:inputType="text"
                 android:padding="5sp"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
 
@@ -202,11 +202,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:backgroundTint="@color/bg_dark"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:onClick="addNewCounterOnClick"
             android:text="@string/btn_save"
             android:textColor="@color/text_light"
-            android:textSize="40sp" />
+            android:textSize="38sp" />
 
     </LinearLayout>
 

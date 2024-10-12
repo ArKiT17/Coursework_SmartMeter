@@ -1,8 +1,8 @@
 <resources>
     <string name="btn_start">START</string>
     <string name="btn_counters">Liczniki</string>
-    <string name="btn_values">Stan licznika</string>
-    <string name="btn_history">Historia odczytów</string>
+    <string name="btn_values">Edycja</string>
+    <string name="btn_history">Historia</string>
     <string name="btn_export">Eksportuj do Excela</string>
     <string name="btn_changeDate">Zmień datę</string>
     <string name="btn_saveValues">Zapisz</string>
@@ -18,7 +18,7 @@
     <string name="title_counter_name">Nazwa licznika</string>
     <string name="title_counter_dots">Licznik:</string>
     <string name="title_previousValue">Poprzednie</string>
-    <string name="title_currentValue">Obecne:</string>
+    <string name="title_currentValue">Obecne</string>
     <string name="title_values">Stan licznika energetycznego</string>
     <string name="title_resultValue">Różnica:</string>
     <string name="title_floor">Piętro:</string>
@@ -37,13 +37,13 @@
     <string name="hint_mail">Wpisz e-mail</string>
     <string name="hint_search">Wyszukaj</string>
     <string name="item_title_counter">Licznik: </string>
-    <string name="item_title_room">| Lokal: </string>
+    <string name="item_title_room">"Lokal: "</string>
     <string name="item_title_floor">Piętro: </string>
-    <string name="item_title_multiplier">| Przekładnik: </string>
+    <string name="item_title_multiplier">"Przekładnik: "</string>
     <string name="cd_goBack">Wróć</string>
     <string name="cd_qr">Kod QR</string>
-    <string name="history_putDate">Data spisu</string>
-    <string name="history_prevValue">Poprzednie</string>
+    <string name="history_putDate">Data</string>
+    <string name="history_prevValue">Poprz</string>
     <string name="history_currValue">Obecne</string>
     <string name="history_difference">Różnica</string>
     <string name="alert_title_warning">Ostrzeżenie</string>

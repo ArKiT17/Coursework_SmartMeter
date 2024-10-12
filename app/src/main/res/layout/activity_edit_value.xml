@@ -53,13 +53,13 @@
             android:id="@+id/titleEditing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="14dp"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/ptserif_regular"
             android:text="@string/title_editing"
             android:textAlignment="center"
             android:textColor="@color/text_light"
-            android:textSize="50sp"
+            android:textSize="38sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,10 +76,10 @@
                 android:id="@+id/eTitleFloor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_floor"
                 android:textColor="@color/text_light"
-                android:textSize="45sp"
+                android:textSize="34sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -89,9 +89,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:textColor="@color/text_light"
-                android:textSize="45sp"
+                android:textSize="38sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/eTitleFloor"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -100,9 +100,9 @@
                 android:id="@+id/eDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:textColor="@color/text_light"
-                android:textSize="35sp"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -115,7 +115,7 @@
         android:id="@+id/eMainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
+        android:layout_marginHorizontal="20dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/eBottomLayout"
         app:layout_constraintTop_toBottomOf="@id/eTopLayout">
@@ -129,10 +129,10 @@
                 android:id="@+id/eTitleCompany"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_company_dots"
                 android:textColor="@color/text_dark"
-                android:textSize="40sp"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -160,10 +160,10 @@
                 android:id="@+id/eTitleСounter"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_counter_dots"
                 android:textColor="@color/text_dark"
-                android:textSize="40sp"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -199,11 +199,11 @@
             android:id="@+id/eTitleValues"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="@string/title_values"
             android:textAlignment="center"
             android:textColor="@color/text_dark"
-            android:textSize="40sp" />
+            android:textSize="34sp" />
 
         <LinearLayout
             android:id="@+id/eValues"
@@ -223,24 +223,24 @@
                     android:id="@+id/eTitlePreviousValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/abhayalibre_medium"
+                    android:fontFamily="@font/ptserif_regular"
                     android:text="@string/title_previousValue"
                     android:textColor="@color/text_dark"
-                    android:textSize="35sp" />
+                    android:textSize="28sp" />
 
                 <EditText
                     android:id="@+id/eNumberPreviousValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/enter_style"
-                    android:fontFamily="@font/abhayalibre_medium"
+                    android:fontFamily="@font/ptserif_regular"
                     android:hint="@string/hint_previousValue"
                     android:inputType="number"
                     android:maxWidth="200dp"
                     android:paddingHorizontal="10dp"
                     android:textColor="@color/text_dark"
                     android:textColorHint="@color/hint_grey"
-                    android:textSize="30sp" />
+                    android:textSize="28sp" />
 
             </LinearLayout>
 
@@ -255,24 +255,24 @@
                     android:id="@+id/eTitleCurrentValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/abhayalibre_medium"
+                    android:fontFamily="@font/ptserif_regular"
                     android:text="@string/title_currentValue"
                     android:textColor="@color/text_dark"
-                    android:textSize="35sp" />
+                    android:textSize="28sp" />
 
                 <EditText
                     android:id="@+id/eNumberCurrentValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/enter_style"
-                    android:fontFamily="@font/abhayalibre_medium"
+                    android:fontFamily="@font/ptserif_regular"
                     android:hint="@string/hint_currentValue"
                     android:inputType="number"
                     android:maxWidth="200dp"
                     android:paddingHorizontal="10dp"
                     android:textColor="@color/text_dark"
                     android:textColorHint="@color/hint_grey"
-                    android:textSize="30sp" />
+                    android:textSize="28sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -289,10 +289,10 @@
                 android:id="@+id/eTitleResultValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_resultValue"
                 android:textColor="@color/text_dark"
-                android:textSize="35sp" />
+                android:textSize="26sp" />
 
             <EditText
                 android:id="@+id/eNumberResultValue"
@@ -302,46 +302,46 @@
                 android:background="@drawable/enter_style"
                 android:ems="2"
                 android:enabled="false"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:text="0"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text=" * "
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/eMultiplier"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="1"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text=" = "
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/eMultiplyResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="0"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
 
@@ -353,13 +353,13 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/bg_dark"
         android:enabled="false"
-        android:fontFamily="@font/abhayalibre_medium"
+        android:fontFamily="@font/ptserif_regular"
         android:onClick="eUpdateValuesInDatabase"
         android:paddingHorizontal="50dp"
         android:paddingVertical="10dp"
         android:text="@string/btn_saveValues"
         android:textColor="@color/text_light"
-        android:textSize="50sp"
+        android:textSize="38sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

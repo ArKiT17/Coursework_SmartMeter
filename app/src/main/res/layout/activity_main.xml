@@ -47,10 +47,10 @@
                 android:id="@+id/titleFloor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_floor"
                 android:textColor="@color/text_light"
-                android:textSize="45sp"
+                android:textSize="34sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -60,9 +60,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:textColor="@color/text_light"
-                android:textSize="45sp"
+                android:textSize="38sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/titleFloor"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +83,7 @@
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
+        android:layout_marginHorizontal="20dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/bottomLayout"
         app:layout_constraintTop_toBottomOf="@id/topLayout">
@@ -97,10 +97,10 @@
                 android:id="@+id/titleCompany"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_company_dots"
                 android:textColor="@color/text_dark"
-                android:textSize="40sp"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -129,10 +129,10 @@
                 android:id="@+id/titleСounter"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_counter_dots"
                 android:textColor="@color/text_dark"
-                android:textSize="40sp"
+                android:textSize="28sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -168,11 +168,11 @@
             android:id="@+id/titleValues"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="@string/title_values"
             android:textAlignment="center"
             android:textColor="@color/text_dark"
-            android:textSize="40sp" />
+            android:textSize="34sp" />
 
         <LinearLayout
             android:id="@+id/values"
@@ -193,24 +193,24 @@
                     android:id="@+id/titlePreviousValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/abhayalibre_medium"
+                    android:fontFamily="@font/ptserif_regular"
                     android:text="@string/title_previousValue"
                     android:textColor="@color/text_dark"
-                    android:textSize="35sp" />
+                    android:textSize="28sp" />
 
                 <EditText
                     android:id="@+id/numberPreviousValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/enter_style"
-                    android:fontFamily="@font/abhayalibre_medium"
+                    android:fontFamily="@font/ptserif_regular"
                     android:hint="@string/hint_previousValue"
                     android:inputType="number"
                     android:maxWidth="200dp"
                     android:paddingHorizontal="10dp"
                     android:textColor="@color/text_dark"
                     android:textColorHint="@color/hint_grey"
-                    android:textSize="30sp" />
+                    android:textSize="28sp" />
 
             </LinearLayout>
 
@@ -225,24 +225,24 @@
                     android:id="@+id/titleCurrentValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/abhayalibre_medium"
+                    android:fontFamily="@font/ptserif_regular"
                     android:text="@string/title_currentValue"
                     android:textColor="@color/text_dark"
-                    android:textSize="35sp" />
+                    android:textSize="28sp" />
 
                 <EditText
                     android:id="@+id/numberCurrentValue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/enter_style"
-                    android:fontFamily="@font/abhayalibre_medium"
+                    android:fontFamily="@font/ptserif_regular"
                     android:hint="@string/hint_currentValue"
                     android:inputType="number"
                     android:maxWidth="200dp"
                     android:paddingHorizontal="10dp"
                     android:textColor="@color/text_dark"
                     android:textColorHint="@color/hint_grey"
-                    android:textSize="30sp" />
+                    android:textSize="28sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -259,10 +259,10 @@
                 android:id="@+id/titleResultValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="@string/title_resultValue"
                 android:textColor="@color/text_dark"
-                android:textSize="35sp" />
+                android:textSize="26sp" />
 
             <EditText
                 android:id="@+id/numberResultValue"
@@ -272,46 +272,46 @@
                 android:background="@drawable/enter_style"
                 android:ems="2"
                 android:enabled="false"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:text="0"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text=" * "
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/multiplier"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="1"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text=" = "
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/multiplyResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/abhayalibre_medium"
+                android:fontFamily="@font/ptserif_regular"
                 android:text="0"
                 android:textColor="@color/text_dark"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
         </LinearLayout>
 
@@ -323,13 +323,13 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/bg_dark"
         android:enabled="false"
-        android:fontFamily="@font/abhayalibre_medium"
+        android:fontFamily="@font/ptserif_regular"
         android:onClick="addValuesToDatabase"
         android:paddingHorizontal="50dp"
         android:paddingVertical="10dp"
         android:text="@string/btn_saveValues"
         android:textColor="@color/text_light"
-        android:textSize="50sp"
+        android:textSize="38sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

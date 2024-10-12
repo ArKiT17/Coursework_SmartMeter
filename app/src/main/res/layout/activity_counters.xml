@@ -13,11 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/abhayalibre_medium"
+        android:fontFamily="@font/ptserif_regular"
         android:text="@string/title_counters"
         android:textAlignment="center"
         android:textColor="@color/text_light"
-        android:textSize="50sp"
+        android:textSize="38sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,26 +39,26 @@
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
             android:background="@drawable/enter_style"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:hint="@string/hint_search"
             android:paddingHorizontal="15dp"
             android:paddingVertical="5dp"
             android:textColor="@color/text_dark"
             android:textColorHint="@color/hint_grey"
-            android:textSize="35sp" />
+            android:textSize="26sp" />
 
         <Button
             android:id="@+id/clearButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/bg"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:onClick="clearSearchBar"
             android:paddingHorizontal="30dp"
             android:paddingVertical="5dp"
             android:text="@string/btn_delete"
             android:textColor="@color/text_dark"
-            android:textSize="35sp" />
+            android:textSize="26sp" />
 
     </LinearLayout>
 

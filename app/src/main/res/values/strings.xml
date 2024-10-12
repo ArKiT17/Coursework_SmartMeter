@@ -3,7 +3,7 @@
 
     <string name="btn_start">START</string>
     <string name="btn_counters">Counters</string>
-    <string name="btn_values">Edit values</string>
+    <string name="btn_values">Edit value</string>
     <string name="btn_history">History</string>
     <string name="btn_export">Export to Excel</string>
     <string name="btn_changeDate">Change date</string>
@@ -23,9 +23,9 @@
     <string name="title_counter_name">Counter name</string>
     <string name="title_counter_dots">Counter:</string>
     <string name="title_previousValue">Previous</string>
-    <string name="title_currentValue">Current:</string>
+    <string name="title_currentValue">Current</string>
     <string name="title_values">Counter value</string>
-    <string name="title_resultValue">Difference:</string>
+    <string name="title_resultValue">Diff:</string>
     <string name="title_floor">Floor:</string>
 
     <string name="title_editing">Edition</string>
@@ -56,9 +56,9 @@
     <string name="hint_search">Search</string>
 
     <string name="item_title_counter">"Counter: "</string>
-    <string name="item_title_room">"| Room: "</string>
+    <string name="item_title_room">"Room: "</string>
     <string name="item_title_floor">"Floor: "</string>
-    <string name="item_title_multiplier">"| Multiplier: "</string>
+    <string name="item_title_multiplier">"Multiplier: "</string>
 
     <string name="cd_goBack">Back</string>
     <string name="cd_qr">QR Code</string>

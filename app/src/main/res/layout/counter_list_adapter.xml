@@ -20,19 +20,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="6dp"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="11111"
             android:textColor="@color/text_dark"
-            android:textSize="25sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/item_company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="Example"
             android:textColor="@color/text_dark"
-            android:textSize="25sp" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 
@@ -43,7 +43,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="@string/item_title_counter"
             android:textColor="@color/spinner_text_grey"
             android:textSize="20sp" />
@@ -52,16 +52,21 @@
             android:id="@+id/item_counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="000"
             android:textColor="@color/spinner_text_grey"
             android:textSize="20sp" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="@string/item_title_room"
             android:textColor="@color/spinner_text_grey"
             android:textSize="20sp" />
@@ -70,7 +75,7 @@
             android:id="@+id/item_room"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="0"
             android:textColor="@color/spinner_text_grey"
             android:textSize="20sp" />
@@ -84,7 +89,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="@string/item_title_floor"
             android:textColor="@color/spinner_text_grey"
             android:textSize="20sp" />
@@ -93,16 +98,21 @@
             android:id="@+id/item_floor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="0"
             android:textColor="@color/spinner_text_grey"
             android:textSize="20sp" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="@string/item_title_multiplier"
             android:textColor="@color/spinner_text_grey"
             android:textSize="20sp" />
@@ -111,7 +121,7 @@
             android:id="@+id/item_multiplier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/abhayalibre_medium"
+            android:fontFamily="@font/ptserif_regular"
             android:text="0"
             android:textColor="@color/spinner_text_grey"
             android:textSize="20sp" />
