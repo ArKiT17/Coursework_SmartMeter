@@ -23,7 +23,7 @@
         android:layout_weight="1.05"
         android:fontFamily="@font/ptserif_regular"
         android:text="31.12.2023"
-        android:textColor="@color/text_dark"
+        android:textColor="@color/text_red"
         android:textSize="18sp" />
 
     <TextView
@@ -43,14 +43,14 @@
         android:layout_weight="1.1"
         android:fontFamily="@font/ptserif_regular"
         android:text="999999"
-        android:textColor="@color/text_dark"
+        android:textColor="@color/text_red"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/value_difference"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="1.05"
         android:fontFamily="@font/ptserif_regular"
         android:text="222222"
         android:textColor="@color/text_dark"
