@@ -133,7 +133,7 @@ public class DBHelper extends Configs {
                     " ON " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " = " + Const.KEY_COUNTER_ID +
                     " WHERE " + Const.KEY_COMPANY + " = ? AND " + Const.TABLE_COUNTERINFO + "." + Const.KEY_ID + " NOT IN (SELECT " + Const.KEY_COUNTER_ID +
                     " FROM " + Const.TABLE_VALUE +
-                    " WHERE " + Const.KEY_DATE + " LIKE '%." + String.format("%02d", day.getMonthValue()) + "." + day.getYear() + "')";
+                    " WHERE " + Const.KEY_DATE + " LIKE '" + day.getYear() + "-" + String.format("%02d", day.getMonthValue()) + "-%');";
             try {
                 PreparedStatement prSt = dbConnection.prepareStatement(query);
                 prSt.setString(1, company);

@@ -266,6 +266,12 @@ public class MainActivity extends AppCompatActivity {
                                     Integer.parseInt(multiplyResult.getText().toString()));
                             id = -1;
                             Buffer.scannerInfo = null;
+                            try {
+                                Thread.sleep(100);
+                                setSpaceAdapter(companies, Buffer.dbHelper.getNoneZeroCompaniesList(toDate));
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
                             companies.setSelection(0);
                             counters.setSelection(0);
                             numberCurrentValue.setText("");
