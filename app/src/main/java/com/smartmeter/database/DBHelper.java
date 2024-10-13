@@ -420,7 +420,7 @@ public class DBHelper extends Configs {
             ResultSet resultSet = null;
             String query = "SELECT " +
                     Const.TABLE_VALUE + "." + Const.KEY_ID +
-                    ", DATE_FORMAT(" + Const.KEY_DATE + ", '%d.%m.%y') as " + Const.KEY_DATE + ", " +
+                    ", DATE_FORMAT(" + Const.KEY_DATE + ", '%d.%m.%y') as ?, " +
                     Const.KEY_PREVIOUS_VALUE + ", " + Const.KEY_CURRENT_VALUE + ", " +
                     Const.KEY_DIFFERENCE + " FROM " + Const.TABLE_VALUE +
                     " JOIN " + Const.TABLE_COUNTERINFO + " ON " +
@@ -431,14 +431,16 @@ public class DBHelper extends Configs {
                     Const.KEY_DATE + " DESC;";
             try {
                 PreparedStatement prSt = dbConnection.prepareStatement(query);
-                prSt.setString(1, company);
-                prSt.setString(2, counter);
+                String dateTitle = "date";
+                prSt.setString(1, dateTitle);
+                prSt.setString(2, company);
+                prSt.setString(3, counter);
                 resultSet = prSt.executeQuery();
 
                 while (resultSet.next()) {
                     result.add(new ValueInfo(
                             resultSet.getInt(Const.KEY_ID),
-                            resultSet.getString(Const.KEY_DATE),
+                            resultSet.getString(dateTitle),
                             resultSet.getInt(Const.KEY_CURRENT_VALUE),
                             resultSet.getInt(Const.KEY_PREVIOUS_VALUE),
                             resultSet.getInt(Const.KEY_DIFFERENCE)

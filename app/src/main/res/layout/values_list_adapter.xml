@@ -27,22 +27,22 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/value_currentValue"
+        android:id="@+id/value_previousValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:fontFamily="@font/ptserif_regular"
-        android:text="999999"
+        android:text="888888"
         android:textColor="@color/text_dark"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/value_previousValue"
+        android:id="@+id/value_currentValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1.1"
         android:fontFamily="@font/ptserif_regular"
-        android:text="888888"
+        android:text="999999"
         android:textColor="@color/text_dark"
         android:textSize="18sp" />
 
